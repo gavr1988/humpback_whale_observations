@@ -26,9 +26,8 @@ print ("Checking data types of columns:")
 print (df_selected.dtypes)
 
 #Now I will convert the datatypes
-# ---------------------------------------------------------
-# CONVERTING DATA TYPES
-# ---------------------------------------------------------
+
+
 
 # eventDate contains dates recorded with different levels of detail.
 # format="mixed" allows pandas to interpret the different ISO date formats.
@@ -39,6 +38,10 @@ df_selected["eventDate"] = pd.to_datetime(
     errors="coerce",
     utc=True
 )
+#as date is required for the time-based analysis I will now remove any n/a values from the eventDate column.
+df_selected = df_selected.dropna(subset=['eventDate'])
+print ("Selected data after dropping rows with missing eventDate values:")
+print (df_selected.head(5))
 
 # Convert columns that should contain numerical data.
 # errors="coerce" changes values that cannot be converted into NaN.
@@ -115,7 +118,6 @@ print ("number of missing values:", df_selected.isnull().sum())
 #I will create new dataframes for the SST and SSS analysis to ensure that I do not lose any data from the original dataframe.
 
 
-
 #I want to create a new column called season which will be based on the month column. 
 #month 1 will be January and be categorised as winted and month 12 will be categorised as winter. 
 # The Royal meterorigical society catergorises the seasons as follows: 
@@ -123,5 +125,9 @@ print ("number of missing values:", df_selected.isnull().sum())
 #Spring: March, April, May
 #Summer: June, July, August
 #Autumn: September, October, November
+#source:
 #https://www.rmets.org/metmatters/difference-between-meteorological-and-astronomical-seasons\
 
+df_selected['season'] = df_selected['month'].apply(lambda x: 'Winter' if x in [12, 1, 2] else ('Spring' if x in [3, 4, 5] else ('Summer' if x in [6, 7, 8] else 'Autumn')))
+print ("Selected data after creating season column:")
+print (df_selected.head(5))
