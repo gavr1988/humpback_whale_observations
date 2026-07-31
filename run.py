@@ -50,6 +50,23 @@ print (df_selected.head(5))
 #checking that this has worked
 print ("number of missing values:", df_selected.isnull().sum())
 
+#I will not drop any more values at this point.
+
+# with datasetName i will replace the blanks with unknown
+# with CoordinateUncertaintyinMeters i will replace the blanks with unknown.
+df_selected['datasetName'] = df_selected['datasetName'].fillna('unknown')
+df_selected['coordinateUncertaintyInMeters'] = df_selected['coordinateUncertaintyInMeters'].fillna('unknown')
+print ("Selected data after replacing blanks with unknown:")
+print (df_selected.head(5))
+print ('Checking Missing Values:')
+print ("number of missing values:", df_selected.isnull().sum())
+
+# with SST i will keep the rows and exclude them from when i do the analysis on temperature. 
+# with SSS i will keep the rows and exclude them from the salinity analysis. 
+#I will create new dataframes for the SST and SSS analysis to ensure that I do not lose any data from the original dataframe.
+
+
+
 
 #I want to create a new column called season which will be based on the month column. 
 #month 1 will be January and be categorised as winted and month 12 will be categorised as winter. 
