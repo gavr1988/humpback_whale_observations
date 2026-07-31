@@ -32,12 +32,7 @@ print (df_selected.dtypes)
 # eventDate contains dates recorded with different levels of detail.
 # format="mixed" allows pandas to interpret the different ISO date formats.
 # Invalid dates will be converted to NaT, meaning "Not a Time".
-df_selected["eventDate"] = pd.to_datetime(
-    df_selected["eventDate"],
-    format="mixed",
-    errors="coerce",
-    utc=True
-)
+df_selected["eventDate"] = pd.to_datetime( df_selected["eventDate"],format="mixed", errors="coerce",utc=True)
 #as date is required for the time-based analysis I will now remove any n/a values from the eventDate column.
 df_selected = df_selected.dropna(subset=['eventDate'])
 print ("Selected data after dropping rows with missing eventDate values:")
