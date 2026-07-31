@@ -42,6 +42,14 @@ print ("Dropping sampling protocol column")
 df_selected = df_selected.drop(columns=['samplingProtocol'])
 print ("Selected data after dropping sampling protocol column:")
 print (df_selected.head(5))
+#Now I will drop the blank months as I will not be able to create the season column without the month data
+print ("Dropping month data:")
+df_selected = df_selected.dropna(subset=['month'])
+print (df_selected.head(5))
+
+#checking that this has worked
+print ("number of missing values:", df_selected.isnull().sum())
+
 
 #I want to create a new column called season which will be based on the month column. 
 #month 1 will be January and be categorised as winted and month 12 will be categorised as winter. 
@@ -52,6 +60,3 @@ print (df_selected.head(5))
 #Autumn: September, October, November
 #https://www.rmets.org/metmatters/difference-between-meteorological-and-astronomical-seasons\
 
-print ("Creation of new column called Seasons")
-df ["Season"] = df_selected[month].apply(lambda x: 'Winter' if x in [12, 1, 2] else ('Spring' if x in [3, 4, 5] else ('Summer' if x in [6, 7, 8] else 'Autumn')))
-print (df["Season"].head(5))
