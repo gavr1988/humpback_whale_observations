@@ -1,8 +1,6 @@
 #How do North Pacific humpback whale observations vary by season and sea-surface temperature between 2010 and 2025?
 
 #installation of extensions used
-from calendar import month
-
 import pandas as pd
 
 df=pd.read_csv('whale_data_original.csv')
@@ -20,8 +18,65 @@ print(df.head(5))
 #due to this leavng 272 columns that I do not need to use, I have consulted a variety of blogs to look at the best way of dropping these unwanted columns 
 #After reading this blog https://medium.com/@whyamit101/pandas-only-keep-certain-columns-7710d6f71a56 - I have found I can keep selected columns by their names
 #I will be calling this as df_selected and will be using the following code to select the columns I need. 
-df_selected = df[['occurrenceID', 'eventDate', 'date_year', 'month', 'decimalLatitude', 'decimalLongitude', 'sst', 'sss', 'datasetName', 'basisOfRecord', 'samplingProtocol', 'coordinateUncertaintyInMeters']]
+df_selected = df[['occurrenceID', 'eventDate', 'date_year', 'month', 'decimalLatitude', 'decimalLongitude', 'sst', 'sss', 'datasetName', 'basisOfRecord', 'coordinateUncertaintyInMeters']]
 print(df_selected.head(5))
+
+##I will now check the datatypes of the columns in the dataframe to ensure that they are correct.
+print ("Checking data types of columns:")
+print (df_selected.dtypes)
+
+#Now I will convert the datatypes
+# ---------------------------------------------------------
+# CONVERTING DATA TYPES
+# ---------------------------------------------------------
+
+# eventDate contains dates recorded with different levels of detail.
+# format="mixed" allows pandas to interpret the different ISO date formats.
+# Invalid dates will be converted to NaT, meaning "Not a Time".
+df_selected["eventDate"] = pd.to_datetime(
+    df_selected["eventDate"],
+    format="mixed",
+    errors="coerce",
+    utc=True
+)
+
+# Convert columns that should contain numerical data.
+# errors="coerce" changes values that cannot be converted into NaN.
+numeric_columns = [
+    "date_year",
+    "month",
+    "decimalLatitude",
+    "decimalLongitude",
+    "sst",
+    "sss",
+    "coordinateUncertaintyInMeters"
+]
+
+for column in numeric_columns:
+    df_selected[column] = pd.to_numeric(
+        df_selected[column],
+        errors="coerce"
+    )
+
+# Convert text-based columns to the pandas string data type.
+text_columns = [
+    "occurrenceID",
+    "datasetName",
+    "basisOfRecord"
+]
+
+for column in text_columns:
+    df_selected[column] = df_selected[column].astype("string")
+
+
+# Check that the data types have been converted
+print("\nChecking data types after conversion:")
+print(df_selected.dtypes)
+
+# Check whether the conversion created any additional missing values
+print("\nMissing values after datatype conversion:")
+print(df_selected.isnull().sum())
+
 
 #Now this data has been selected I will begin to clean the data. 
 #Initially I will check for duplicate data and remove it. 
@@ -35,13 +90,6 @@ print ("number of duplicates:", df.duplicated().sum())
 print ("Checking for missing values") 
 print ("number of missing values:", df_selected.isnull().sum())
 
-#From this we can see that from the printed output that the missing values in the sampling protocol is the highest and if we were to remove this data it would only leave approximately 4000 rows which doesnt fit the remit of the project. 
-#I will now drop the sampling protocol column as it is not relevant to the question I am trying to answer. 
-
-print ("Dropping sampling protocol column")
-df_selected = df_selected.drop(columns=['samplingProtocol'])
-print ("Selected data after dropping sampling protocol column:")
-print (df_selected.head(5))
 #Now I will drop the blank months as I will not be able to create the season column without the month data
 print ("Dropping month data:")
 df_selected = df_selected.dropna(subset=['month'])
@@ -53,9 +101,10 @@ print ("number of missing values:", df_selected.isnull().sum())
 #I will not drop any more values at this point.
 
 # with datasetName i will replace the blanks with unknown
-# with CoordinateUncertaintyinMeters i will replace the blanks with unknown.
+#coordinateUncertaintyInMeters is a numeric column so missing values will remain as NaN.
+# rather than being replaced with text such as unknown  as this will prevent any numerical analysis.
 df_selected['datasetName'] = df_selected['datasetName'].fillna('unknown')
-df_selected['coordinateUncertaintyInMeters'] = df_selected['coordinateUncertaintyInMeters'].fillna('unknown')
+
 print ("Selected data after replacing blanks with unknown:")
 print (df_selected.head(5))
 print ('Checking Missing Values:')
@@ -64,7 +113,6 @@ print ("number of missing values:", df_selected.isnull().sum())
 # with SST i will keep the rows and exclude them from when i do the analysis on temperature. 
 # with SSS i will keep the rows and exclude them from the salinity analysis. 
 #I will create new dataframes for the SST and SSS analysis to ensure that I do not lose any data from the original dataframe.
-
 
 
 
