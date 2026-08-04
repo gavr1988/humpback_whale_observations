@@ -133,10 +133,24 @@ df_selected = df_selected[
 #check that it has worked
 print ("Earliest Year:", df_selected["date_year"].min())
 print ("Latest Year:", df_selected["date_year"].max())
+
 #checking the unique values in the month column to ensure that they are all valid months
+
 print("Month values:", sorted(df_selected["month"].unique()))
 
+# I will now Keep only valid month values from 1 to 12
+df_selected = df_selected[
+    df_selected["month"].between(1, 12)
+]
 
+df_selected["month"] = df_selected["month"].astype("int64")
+
+# I will now check whether date_year agrees with the year in eventDate
+year_mismatches = df_selected[
+    df_selected["eventDate"].dt.year != df_selected["date_year"]
+]
+
+print("Year mismatches:", len(year_mismatches))
 
 #I will now export the cleaned dataframe to a new csv filed 
 #df_selected.to_csv('whale_data_cleaned.csv', index=False)
