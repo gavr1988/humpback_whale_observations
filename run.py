@@ -127,9 +127,8 @@ print ("Selected data after creating season column:")
 print (df_selected.head(5))
 
 #now i am going to remove 2026 data as my question focuses on the years 2010 to 2025.
-df_selected = df_selected[
-    df_selected["date_year"].between (2010,2025)
-]
+df_selected = df_selected[df_selected["date_year"].between (2010,2025)]
+
 #check that it has worked
 print ("Earliest Year:", df_selected["date_year"].min())
 print ("Latest Year:", df_selected["date_year"].max())
@@ -139,18 +138,33 @@ print ("Latest Year:", df_selected["date_year"].max())
 print("Month values:", sorted(df_selected["month"].unique()))
 
 # I will now Keep only valid month values from 1 to 12
-df_selected = df_selected[
-    df_selected["month"].between(1, 12)
-]
+df_selected = df_selected[ df_selected["month"].between(1, 12)]
 
 df_selected["month"] = df_selected["month"].astype("int64")
 
 # I will now check whether date_year agrees with the year in eventDate
-year_mismatches = df_selected[
-    df_selected["eventDate"].dt.year != df_selected["date_year"]
-]
+year_mismatches = df_selected[df_selected["eventDate"].dt.year != df_selected["date_year"]]
 
 print("Year mismatches:", len(year_mismatches))
+
+
+# I will now check whether month agrees with the month in eventDate
+month_mismatches = df_selected[df_selected["eventDate"].dt.month != df_selected["month"]]
+
+print("Month mismatches:", len(month_mismatches))
+
+# 3628 values in the original month column do not agree with eventDate.
+# As eventDate contains the complete observation date, I will derive the
+# month directly from eventDate to make the date information consistent.
+df_selected["month"] = df_selected["eventDate"].dt.month
+
+month_mismatches = df_selected[ df_selected["eventDate"].dt.month != df_selected["month"]]
+
+print("Month mismatches after correction:",len(month_mismatches))
+#now after that is fixed we will regnerate the season column to ensure that it is correct.
+df_selected['season'] = df_selected['month'].apply(lambda x: 'Winter' if x in [12, 1, 2] else ('Spring' if x in [3, 4, 5] else ('Summer' if x in [6, 7, 8] else 'Autumn')))
+print ("Selected data after creating season column:")
+print (df_selected.head(5))
 
 #I will now export the cleaned dataframe to a new csv filed 
 #df_selected.to_csv('whale_data_cleaned.csv', index=False)
