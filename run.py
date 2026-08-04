@@ -130,6 +130,13 @@ print (df_selected.head(5))
 df_selected = df_selected[
     df_selected["date_year"].between (2010,2025)
 ]
+#check that it has worked
+print ("Earliest Year:", df_selected["date_year"].min())
+print ("Latest Year:", df_selected["date_year"].max())
+#checking the unique values in the month column to ensure that they are all valid months
+print("Month values:", sorted(df_selected["month"].unique()))
+
+
 
 #I will now export the cleaned dataframe to a new csv filed 
 #df_selected.to_csv('whale_data_cleaned.csv', index=False)
