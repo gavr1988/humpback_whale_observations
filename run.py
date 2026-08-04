@@ -28,7 +28,6 @@ print (df_selected.dtypes)
 #Now I will convert the datatypes
 
 
-
 # eventDate contains dates recorded with different levels of detail.
 # format="mixed" allows pandas to interpret the different ISO date formats.
 # Invalid dates will be converted to NaT, meaning "Not a Time".
@@ -126,3 +125,12 @@ print ("number of missing values:", df_selected.isnull().sum())
 df_selected['season'] = df_selected['month'].apply(lambda x: 'Winter' if x in [12, 1, 2] else ('Spring' if x in [3, 4, 5] else ('Summer' if x in [6, 7, 8] else 'Autumn')))
 print ("Selected data after creating season column:")
 print (df_selected.head(5))
+
+#now i am going to remove 2026 data as my question focuses on the years 2010 to 2025.
+df_selected = df_selected[
+    df_selected["date_year"].between (2010,2025)
+]
+
+#I will now export the cleaned dataframe to a new csv filed 
+#df_selected.to_csv('whale_data_cleaned.csv', index=False)
+
