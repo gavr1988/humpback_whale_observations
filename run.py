@@ -39,28 +39,13 @@ print (df_selected.head(5))
 
 # Convert columns that should contain numerical data.
 # errors="coerce" changes values that cannot be converted into NaN.
-numeric_columns = [
-    "date_year",
-    "month",
-    "decimalLatitude",
-    "decimalLongitude",
-    "sst",
-    "sss",
-    "coordinateUncertaintyInMeters"
-]
+numeric_columns = ["date_year","month","decimalLatitude","decimalLongitude","sst","sss","coordinateUncertaintyInMeters"]
 
 for column in numeric_columns:
-    df_selected[column] = pd.to_numeric(
-        df_selected[column],
-        errors="coerce"
-    )
+    df_selected[column] = pd.to_numeric(df_selected[column],errors="coerce")
 
 # Convert text-based columns to the pandas string data type.
-text_columns = [
-    "occurrenceID",
-    "datasetName",
-    "basisOfRecord"
-]
+text_columns = ["occurrenceID","datasetName","basisOfRecord"]
 
 for column in text_columns:
     df_selected[column] = df_selected[column].astype("string")
@@ -183,5 +168,5 @@ print("Invalid coordinates:", len(invalid_coordinates))
 print(df_selected[["decimalLatitude", "decimalLongitude"]].isnull().sum())
 
 #I will now export the cleaned dataframe to a new csv filed 
-#df_selected.to_csv('whale_data_cleaned.csv', index=False)
+df_selected.to_csv('whale_data_cleaned.csv', index=False)
 
