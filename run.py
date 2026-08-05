@@ -2,6 +2,8 @@
 
 #installation of extensions used
 import pandas as pd
+import numpy as np
+
 
 df=pd.read_csv('whale_data_original.csv')
 #checking the first 5 rows of the dataframe
@@ -169,4 +171,7 @@ print(df_selected[["decimalLatitude", "decimalLongitude"]].isnull().sum())
 
 #I will now export the cleaned dataframe to a new csv filed 
 df_selected.to_csv('whale_data_cleaned.csv', index=False)
+
+#I will now begin my NumPy exploration of the data
+#I will be using Numpy to explore the data
 
