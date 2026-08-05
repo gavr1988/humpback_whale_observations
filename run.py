@@ -166,6 +166,22 @@ df_selected['season'] = df_selected['month'].apply(lambda x: 'Winter' if x in [1
 print ("Selected data after creating season column:")
 print (df_selected.head(5))
 
+#the seasons are correct.
+#i will now check the unique values in the season column to ensure that they are all valid seasons
+print("Season values:", sorted(df_selected["season"].unique()))
+
+#I intend to plot the coordinates on a map to highlight the locations of the observations when doing the dashboard on tableau.
+#i must check the coordinates to ensure that they are valid.
+#I will check the unique values in the decimalLatitude column to ensure that they are all valid
+
+# Latitude must be between -90 and 90.
+# Longitude must be between -180 and 180.
+invalid_coordinates = df_selected[ ~df_selected["decimalLatitude"].between(-90, 90) | ~df_selected["decimalLongitude"].between(-180, 180) ]
+print("Invalid coordinates:", len(invalid_coordinates))
+
+#i will now check for any missing coordinates in the decimalLatitude and decimalLongitude columns
+print(df_selected[["decimalLatitude", "decimalLongitude"]].isnull().sum())
+
 #I will now export the cleaned dataframe to a new csv filed 
 #df_selected.to_csv('whale_data_cleaned.csv', index=False)
 
