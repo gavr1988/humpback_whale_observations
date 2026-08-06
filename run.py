@@ -207,7 +207,7 @@ print(sst_outliers[['eventDate', 'season', 'decimalLatitude', 'decimalLongitude'
 
 #Now I will use matplotlib to visualise these findings
 
-# Histogram showing the distribution of sea-surface temperature
+# 1. Histogram showing the distribution of sea-surface temperature
 plt.hist(df_sst["sst"], bins=30, edgecolor="black")
 
 plt.title("Distribution of Sea-Surface Temperature")
@@ -216,7 +216,7 @@ plt.ylabel("Number of Observations")
 
 plt.show()
 
-# Box plot showing the spread and potential outliers in SST by season
+# 2. Box plot showing the spread and potential outliers in SST by season
 
 season_order = ["Winter", "Spring", "Summer", "Autumn"]
 
@@ -228,7 +228,19 @@ plt.ylabel("Sea-Surface Temperature (°C)")
 
 plt.show()
 
-#Mean and Median SST by season
+#3. Whale Observations by Season
+plt.figure(figsize=(10, 6))
+
+sns.countplot( data=df_sst, x="season",order=season_order)
+
+plt.title("Number of Whale Observations by Season")
+plt.xlabel("Season")
+plt.ylabel("Number of Observations")
+
+plt.tight_layout()
+plt.show()
+
+#4. Bar Chart: Mean and Median SST by season
 
 #Calculating the mean and median SST by season
 season_sst_summary = (df_sst.groupby("season")["sst"].agg(["mean", "median"]).reindex(season_order)).reset_index()
@@ -246,3 +258,45 @@ plt.legend(title="Statistic")
 
 plt.tight_layout()
 plt.show()
+#5: Observations by Sea Surface Temperature Range
+#Calculating the number of observation by sst_range
+# Divide SST values into five-degree ranges
+df_sst["sst_range"] = pd.cut(
+    df_sst["sst"],
+    bins=[-5, 0, 5, 10, 15, 20, 25, 30, 35, 40],
+    labels=[
+        "-5 to 0°C",
+        "0 to 5°C",
+        "5 to 10°C",
+        "10 to 15°C",
+        "15 to 20°C",
+        "20 to 25°C",
+        "25 to 30°C",
+        "30 to 35°C",
+        "35 to 40°C"
+    ],
+    include_lowest=True
+)
+
+# Count observations within each SST range
+sst_range_counts = (df_sst["sst_range"].value_counts().sort_index().reset_index())
+
+sst_range_counts.columns = ["sst_range","observation_count"]
+
+plt.figure(figsize=(12, 6))
+
+sns.barplot(
+    data=sst_range_counts,
+    x="sst_range",
+    y="observation_count"
+)
+
+plt.title("Whale Observations by Sea-Surface Temperature Range")
+plt.xlabel("Sea-Surface Temperature Range")
+plt.ylabel("Number of Observations")
+
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+
+#6. Mean SST by Year
