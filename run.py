@@ -69,20 +69,6 @@ print ("checking for duplicates")
 print ("number of duplicates:", df.duplicated().sum())
 
 #this shows that there are no duplicates in the data. 
-# I will now check for missing values in the data.
-# I will do this as I want to ensure that the data I am using is accurate and not skewed by missing values.
-print ("Checking for missing values") 
-print ("number of missing values:", df_selected.isnull().sum())
-
-#Now I will drop the blank months as I will not be able to create the season column without the month data
-print ("Dropping month data:")
-df_selected = df_selected.dropna(subset=['month'])
-print (df_selected.head(5))
-
-#checking that this has worked
-print ("number of missing values:", df_selected.isnull().sum())
-
-#I will not drop any more values at this point.
 
 # with datasetName i will replace the blanks with unknown
 #coordinateUncertaintyInMeters is a numeric column so missing values will remain as NaN.
@@ -99,20 +85,6 @@ print ("number of missing values:", df_selected.isnull().sum())
 #I will create new dataframes for the SST and SSS analysis to ensure that I do not lose any data from the original dataframe.
 
 
-#I want to create a new column called season which will be based on the month column. 
-#month 1 will be January and be categorised as winted and month 12 will be categorised as winter. 
-# The Royal meterorigical society catergorises the seasons as follows: 
-#Winter: December, January, February
-#Spring: March, April, May
-#Summer: June, July, August
-#Autumn: September, October, November
-#source:
-#https://www.rmets.org/metmatters/difference-between-meteorological-and-astronomical-seasons\
-
-df_selected['season'] = df_selected['month'].apply(lambda x: 'Winter' if x in [12, 1, 2] else ('Spring' if x in [3, 4, 5] else ('Summer' if x in [6, 7, 8] else 'Autumn')))
-print ("Selected data after creating season column:")
-print (df_selected.head(5))
-
 #now i am going to remove 2026 data as my question focuses on the years 2010 to 2025.
 df_selected = df_selected[df_selected["date_year"].between (2010,2025)]
 
@@ -120,14 +92,6 @@ df_selected = df_selected[df_selected["date_year"].between (2010,2025)]
 print ("Earliest Year:", df_selected["date_year"].min())
 print ("Latest Year:", df_selected["date_year"].max())
 
-#checking the unique values in the month column to ensure that they are all valid months
-
-print("Month values:", sorted(df_selected["month"].unique()))
-
-# I will now Keep only valid month values from 1 to 12
-df_selected = df_selected[ df_selected["month"].between(1, 12)]
-
-df_selected["month"] = df_selected["month"].astype("int64")
 
 # I will now check whether date_year agrees with the year in eventDate
 year_mismatches = df_selected[df_selected["eventDate"].dt.year != df_selected["date_year"]]
@@ -148,7 +112,16 @@ df_selected["month"] = df_selected["eventDate"].dt.month
 month_mismatches = df_selected[ df_selected["eventDate"].dt.month != df_selected["month"]]
 
 print("Month mismatches after correction:",len(month_mismatches))
-#now after that is fixed we will regnerate the season column to ensure that it is correct.
+#I want to create a new column called season which will be based on the month column. 
+#month 1 will be January and be categorised as winted and month 12 will be categorised as winter. 
+# The Royal meterorigical society catergorises the seasons as follows: 
+#Winter: December, January, February
+#Spring: March, April, May
+#Summer: June, July, August
+#Autumn: September, October, November
+#source:
+#https://www.rmets.org/metmatters/difference-between-meteorological-and-astronomical-seasons\
+
 df_selected['season'] = df_selected['month'].apply(lambda x: 'Winter' if x in [12, 1, 2] else ('Spring' if x in [3, 4, 5] else ('Summer' if x in [6, 7, 8] else 'Autumn')))
 print ("Selected data after creating season column:")
 print (df_selected.head(5))
