@@ -183,3 +183,14 @@ print ("25th percentils:", sst_percentiles[0])
 print ("50th percentils:", sst_percentiles[1])
 print ("75th percentils:", sst_percentiles[2])
 
+#I now will investigate if there are any outliers in the sst data using the IQR method.
+sst_q1 = np.percentile(sst_array, 25)
+sst_q3 = np.percentile(sst_array, 75)
+
+sst_iqr = sst_q3 - sst_q1
+
+sst_lower_bound = sst_q1 - (1.5 * sst_iqr)
+sst_upper_bound = sst_q3 + (1.5 * sst_iqr)
+
+print ("SST lower boundary for outliers:", sst_lower_bound)
+print ("SST upper boundary for outliers:", sst_upper_bound)
