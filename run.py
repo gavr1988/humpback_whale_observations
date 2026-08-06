@@ -314,3 +314,30 @@ plt.xticks(range(2010, 2026),rotation=45)
 
 plt.tight_layout()
 plt.show()
+
+#Now I will begin my exploration of the sea-surface salinity data
+
+#calculating the percentiles of the sss data
+sss_percentiles = np.percentile(sss_array, [25, 50, 75])
+
+print ("the SSS percentiles:")
+print ("25th percentils:", sss_percentiles[0])
+print ("50th percentils:", sss_percentiles[1])
+print ("75th percentils:", sss_percentiles[2])
+
+#I now will investigate if there are any outliers in the sss data using the IQR method.
+sss_q1 = np.percentile(sss_array, 25)
+sss_q3 = np.percentile(sss_array, 75)
+
+sss_iqr = sss_q3 - sss_q1
+
+sss_lower_bound = sss_q1 - (1.5 * sss_iqr)
+sss_upper_bound = sss_q3 + (1.5 * sss_iqr)
+
+print ("SSS lower boundary for outliers:", sss_lower_bound)
+print ("SSS upper boundary for outliers:", sss_upper_bound)
+
+sss_outliers = df_sss[(df_sss['sss'] < sss_lower_bound) | (df_sss['sss'] > sss_upper_bound)]
+print ("Number of outliers in SSS data:", len(sss_outliers))
+print ("Outliers in SSS data:")
+print(sss_outliers[['eventDate', 'season', 'decimalLatitude', 'decimalLongitude', 'sss']].head(20))
