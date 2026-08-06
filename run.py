@@ -161,3 +161,6 @@ print ("observations with sst data:", len(df_sst))
 print ("observations with SSS data:", len(df_sss))
 
 
+#I will now convert the sst and sss columns to numpy arrays for analysis
+sst_array = df_sst['sst'].to_numpy()
+sss_array = df_sss['sss'].to_numpy()
