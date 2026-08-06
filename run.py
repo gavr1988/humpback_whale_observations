@@ -194,3 +194,11 @@ sst_upper_bound = sst_q3 + (1.5 * sst_iqr)
 
 print ("SST lower boundary for outliers:", sst_lower_bound)
 print ("SST upper boundary for outliers:", sst_upper_bound)
+
+sst_outliers = df_sst[(df_sst['sst'] < sst_lower_bound) | (df_sst['sst'] > sst_upper_bound)]
+print ("Number of outliers in SST data:", len(sst_outliers))
+print ("Outliers in SST data:")
+print(sst_outliers[['eventDate', 'season', 'decimalLatitude', 'decimalLongitude', 'sst']].head(20))
+
+ #The SST outlier DataFrame is empty, which means no SST values were flagged as outliers by the IQR method.
+# This does not mean the dataset has no unusual values at all, only that none were outside these bounds.
