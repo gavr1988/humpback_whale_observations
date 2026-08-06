@@ -217,12 +217,10 @@ plt.ylabel("Number of Observations")
 plt.show()
 
 # Box plot showing the spread and potential outliers in SST by season
-sns.boxplot(
-    data=df_sst,
-    x="season",
-    y="sst",
-    order=["Winter", "Spring", "Summer", "Autumn"]
-)
+
+season_order = ["Winter", "Spring", "Summer", "Autumn"]
+
+sns.boxplot(data=df_sst, x="season", y="sst",order=season_order)
 
 plt.title("Sea-Surface Temperature by Season")
 plt.xlabel("Season")
@@ -230,3 +228,21 @@ plt.ylabel("Sea-Surface Temperature (°C)")
 
 plt.show()
 
+#Mean and Median SST by season
+
+#Calculating the mean and median SST by season
+season_sst_summary = (df_sst.groupby("season")["sst"].agg(["mean", "median"]).reindex(season_order)).reset_index()
+
+season_sst_chart = season_sst_summary.melt(id_vars="season",value_vars=["mean", "median"],var_name="statistic",value_name="sst")
+
+plt.figure(figsize=(10, 6))
+
+sns.barplot(data=season_sst_chart, x="season", y="sst", hue="statistic", order=season_order)
+
+plt.title("Mean and Median Sea-Surface Temperature by Season")
+plt.xlabel("Season")
+plt.ylabel("Sea-Surface Temperature (°C)")
+plt.legend(title="Statistic")
+
+plt.tight_layout()
+plt.show()
