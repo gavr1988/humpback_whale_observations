@@ -3,8 +3,10 @@
 #installation of extensions used
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
 
-
+#loading the data frame
 df=pd.read_csv('whale_data_original.csv')
 #checking the first 5 rows of the dataframe
 print(df.head(5))
@@ -202,4 +204,29 @@ print(sst_outliers[['eventDate', 'season', 'decimalLatitude', 'decimalLongitude'
 
 # The SST outlier data frame is empty which means there are no SST values that fall outside the IQR outlier boundaries.
 # This does not mean there are no unusual values in the data overall, only that none were flagged by this method.
+
+#Now I will use matplotlib to visualise these findings
+
+# Histogram showing the distribution of sea-surface temperature
+plt.hist(df_sst["sst"], bins=30, edgecolor="black")
+
+plt.title("Distribution of Sea-Surface Temperature")
+plt.xlabel("Sea-Surface Temperature (°C)")
+plt.ylabel("Number of Observations")
+
+plt.show()
+
+# Box plot showing the spread and potential outliers in SST by season
+sns.boxplot(
+    data=df_sst,
+    x="season",
+    y="sst",
+    order=["Winter", "Spring", "Summer", "Autumn"]
+)
+
+plt.title("Sea-Surface Temperature by Season")
+plt.xlabel("Season")
+plt.ylabel("Sea-Surface Temperature (°C)")
+
+plt.show()
 
