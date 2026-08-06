@@ -145,6 +145,19 @@ print(df_selected[["decimalLatitude", "decimalLongitude"]].isnull().sum())
 #I will now export the cleaned dataframe to a new csv filed 
 df_selected.to_csv('whale_data_cleaned.csv', index=False)
 
+#EXPLORATION OF DATA USING NUMPY#
+
 #I will now begin my NumPy exploration of the data
+
+
 #I will be using Numpy to explore the data
+
+#I will begin by creating separate dataframes for the SST and SSS analysis to ensure that I do not lose any data from the original dataframe.
+df_sst = df_selected.dropna(subset=['sst']).copy()
+df_sss = df_selected.dropna(subset=['sss']).copy()
+
+print ("Total cleaned observations:", len(df_selected))
+print ("observations with sst data:", len(df_sst))
+print ("observations with SSS data:", len(df_sss))
+
 
