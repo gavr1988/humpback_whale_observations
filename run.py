@@ -153,6 +153,7 @@ df_selected.to_csv('whale_data_cleaned.csv', index=False)
 #I will be using Numpy to explore the data
 
 #I will begin by creating separate dataframes for the SST and SSS analysis to ensure that I do not lose any data from the original dataframe.
+#I will also be able to exclude missing measurements without changing the dataframes selected
 df_sst = df_selected.dropna(subset=['sst']).copy()
 df_sss = df_selected.dropna(subset=['sss']).copy()
 
@@ -164,3 +165,12 @@ print ("observations with SSS data:", len(df_sss))
 #I will now convert the sst and sss columns to numpy arrays for analysis
 sst_array = df_sst['sst'].to_numpy()
 sss_array = df_sss['sss'].to_numpy()
+
+#Exploration of the sea-surface temperature
+
+print("sea-surface temperature (sst) analysis:")
+print ("Mean sst:", np.mean(sst_array))
+print ("median sst:", np.median(sst_array))
+print ("maximum sst:", np.max(sst_array))
+print ("minimum sst:", np.min(sst_array))
+print ("Standard deviation of sst:", np.std(sst_array))
