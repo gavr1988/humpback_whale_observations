@@ -174,3 +174,12 @@ print ("median sst:", np.median(sst_array))
 print ("maximum sst:", np.max(sst_array))
 print ("minimum sst:", np.min(sst_array))
 print ("Standard deviation of sst:", np.std(sst_array))
+
+#calculating the percentiles of the sst data
+sst_percentiles = np.percentile(sst_array, [25, 50, 75])
+
+print ("the SST percentiles:")
+print ("25th percentils:", sst_percentiles[0])
+print ("50th percentils:", sst_percentiles[1])
+print ("75th percentils:", sst_percentiles[2])
+
