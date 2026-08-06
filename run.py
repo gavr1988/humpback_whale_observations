@@ -300,3 +300,17 @@ plt.tight_layout()
 plt.show()
 
 #6. Mean SST by Year
+yearly_mean_sst = (df_sst.groupby("date_year")["sst"].mean().reset_index())
+
+plt.figure(figsize=(12, 6))
+
+sns.lineplot(data=yearly_mean_sst,x="date_year",y="sst",marker="o")
+
+plt.title("Mean Sea-Surface Temperature of Whale Observations by Year")
+plt.xlabel("Year")
+plt.ylabel("Mean Sea-Surface Temperature (°C)")
+
+plt.xticks(range(2010, 2026),rotation=45)
+
+plt.tight_layout()
+plt.show()
