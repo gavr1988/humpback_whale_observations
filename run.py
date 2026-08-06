@@ -200,5 +200,6 @@ print ("Number of outliers in SST data:", len(sst_outliers))
 print ("Outliers in SST data:")
 print(sst_outliers[['eventDate', 'season', 'decimalLatitude', 'decimalLongitude', 'sst']].head(20))
 
- #The SST outlier DataFrame is empty, which means no SST values were flagged as outliers by the IQR method.
-# This does not mean the dataset has no unusual values at all, only that none were outside these bounds.
+# The SST outlier data frame is empty which means there are no SST values that fall outside the IQR outlier boundaries.
+# This does not mean there are no unusual values in the data overall, only that none were flagged by this method.
+
