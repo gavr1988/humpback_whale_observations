@@ -650,3 +650,6 @@ print ("Testing RMSE for Optimal Model:", f"{test_rmse:.2f}")
 # This indicates that the model performs consistently on both the training and testing datasets.
 # It also performs considerably better than the Linear Regression modelwhile remaining much simpler than the unrestricted Decision Tree.
 # The small difference between training and testing error suggests consistent generalisation to the current test dataset. 
+
+#Now to create a streamlit to show the results of the analysis in a dashboard format.
+#In the streamlit I will also create a page where it is possible to make predictions based on what a user will input
