@@ -371,23 +371,35 @@ for season in season_order:
 
     season_sss = df_sss.loc[df_sss["season"] == season,"sss"].to_numpy()
 
-    print("\nSeason:", season)
-    print("Number of observations:", len(season_sss))
-    print("Mean SSS:", np.mean(season_sss))
-    print("Median SSS:", np.median(season_sss))
-    print("Minimum SSS:", np.min(season_sss))
-    print("Maximum SSS:", np.max(season_sss))
-    print("Standard deviation:", np.std(season_sss))
+print("\nSeason:", season)
+print("Number of observations:", len(season_sss))
+print("Mean SSS:", np.mean(season_sss))
+print("Median SSS:", np.median(season_sss))
+print("Minimum SSS:", np.min(season_sss))
+print("Maximum SSS:", np.max(season_sss))
+print("Standard deviation:", np.std(season_sss))
 
-    #I will now visualise the SSS data using matplotlib and seaborn
+#I will now visualise the SSS data using matplotlib and seaborn
 
-    #1. SSS Histogram
-    plt.hist(df_sss["sss"], bins=30, edgecolor="black")
+#1. SSS Histogram
+plt.hist(df_sss["sss"], bins=30, edgecolor="black")
 
-    plt.title("Distribution of Sea-Surface Salinity")
-    plt.xlabel("Sea-Surface Salinity (PSU)")
-    plt.ylabel("Number of Observations")
+plt.title("Distribution of Sea-Surface Salinity")
+plt.xlabel("Sea-Surface Salinity (PSU)")
+plt.ylabel("Number of Observations")
 
-    plt.tight_layout()
-    plt.show()
+plt.tight_layout()
+plt.show()
 
+#2. SSS Box Plot by Season
+
+plt.figure (figsize=(10,6))
+
+sns.boxplot(data=df_sss, x="season", y="sss",order=season_order)
+
+plt.title ("Sea-Surface Salinity by Season")
+plt.xlabel("season")
+plt.ylabel("Sea-Surface Salinity (PSU)")
+
+plt.tight_layout()
+plt.show()
