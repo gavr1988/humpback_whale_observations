@@ -5,6 +5,10 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+import sklearn as sk
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error, r2_score
+
 
 #loading the data frame
 df=pd.read_csv('whale_data_original.csv')
@@ -451,4 +455,9 @@ plt.xlabel("Sea Surface Temperature (°C)")
 plt.ylabel("Sea Surface Salinity (PSU)")
 plt.show()
 
-#Now 
+#Now I will be using Scikitlearn to make predictions of Sea Surface Temperature
+#The way to do this will be to use a linear regression. 
+#The liunear regression will be used to predict the sea surface temperature.
+#The reason I am using Linear regression is because it is a simple and effective method for predicting a continuous variable based on one or more predictor variables.
+#In order to troubleshoot the linearregression i utilised this documentation: 
+#https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html 
