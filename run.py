@@ -378,3 +378,16 @@ for season in season_order:
     print("Minimum SSS:", np.min(season_sss))
     print("Maximum SSS:", np.max(season_sss))
     print("Standard deviation:", np.std(season_sss))
+
+    #I will now visualise the SSS data using matplotlib and seaborn
+
+    #1. SSS Histogram
+    plt.hist(df_sss["sss"], bins=30, edgecolor="black")
+
+    plt.title("Distribution of Sea-Surface Salinity")
+    plt.xlabel("Sea-Surface Salinity (PSU)")
+    plt.ylabel("Number of Observations")
+
+    plt.tight_layout()
+    plt.show()
+
