@@ -177,6 +177,21 @@ print ("maximum sst:", np.max(sst_array))
 print ("minimum sst:", np.min(sst_array))
 print ("Standard deviation of sst:", np.std(sst_array))
 
+#Exploration of Sea Surface Temperature by Season
+season_order = ["Winter", "Spring", "Summer", "Autumn"]
+
+for season in season_order:
+
+    season_sst = df_sst.loc[df_sst["season"] == season,"sst"].to_numpy()
+
+    print("\nSeason:", season)
+    print("Number of observations:", len(season_sst))
+    print("Mean SST:", np.mean(season_sst))
+    print("Median SST:", np.median(season_sst))
+    print("Minimum SST:", np.min(season_sst))
+    print("Maximum SST:", np.max(season_sst))
+    print("Standard deviation:", np.std(season_sst))
+
 #calculating the percentiles of the sst data
 sst_percentiles = np.percentile(sst_array, [25, 50, 75])
 
@@ -218,7 +233,6 @@ plt.show()
 
 # 2. Box plot showing the spread and potential outliers in SST by season
 
-season_order = ["Winter", "Spring", "Summer", "Autumn"]
 
 sns.boxplot(data=df_sst, x="season", y="sst",order=season_order)
 
@@ -347,3 +361,20 @@ sss_outliers = df_sss[(df_sss['sss'] < sss_lower_bound) | (df_sss['sss'] > sss_u
 print ("Number of outliers in SSS data:", len(sss_outliers))
 print ("Outliers in SSS data:")
 print(sss_outliers[['eventDate', 'season', 'decimalLatitude', 'decimalLongitude', 'sss']].head(20))
+
+#Investigating SSS values by season
+
+# Investigate SSS values by season
+# Investigate SSS values by season using the season order already created
+
+for season in season_order:
+
+    season_sss = df_sss.loc[df_sss["season"] == season,"sss"].to_numpy()
+
+    print("\nSeason:", season)
+    print("Number of observations:", len(season_sss))
+    print("Mean SSS:", np.mean(season_sss))
+    print("Median SSS:", np.median(season_sss))
+    print("Minimum SSS:", np.min(season_sss))
+    print("Maximum SSS:", np.max(season_sss))
+    print("Standard deviation:", np.std(season_sss))
