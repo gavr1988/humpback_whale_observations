@@ -403,3 +403,40 @@ plt.ylabel("Sea-Surface Salinity (PSU)")
 
 plt.tight_layout()
 plt.show()
+
+#3. Mean and Median SSS by Season
+
+sss_season_summary = (df_sss.groupby("season")["sss"].agg(["mean", "median"]).reindex(season_order).reset_index())
+
+print("Mean and median SSS by season:")
+print(sss_season_summary)
+
+# Reshape the data so that the mean and median can
+# be displayed together on the same graph.
+sss_season_chart = sss_season_summary.melt(id_vars="season",value_vars=["mean", "median"],var_name="statistic",value_name="sss")
+
+plt.figure(figsize=(10, 6))
+
+sns.barplot(data=sss_season_chart,x="season",y="sss",hue="statistic",order=season_order)
+
+plt.title("Mean and Median Sea-Surface Salinity by Season")
+plt.xlabel("Season")
+plt.ylabel("Sea-Surface Salinity")
+plt.legend(title="Statistic")
+
+plt.tight_layout()
+plt.show()
+
+#NOTE TO SELF - ENSURE YOU WRITE A COMMENT EXPLAINING WHAT EACH ONE OF THESE SHOW!
+
+#lets now compare SST and SSS together
+
+#First i must create a dataframe containing the two records
+df_sst_sss = df_selected.dropna(subset=['sst', 'sss']).copy()
+
+print ("Number of records withn both SST and SSS data:", len(df_sst_sss))
+
+sst_sss_correlation=np.corrcoef(df_sst_sss["sst"], df_sst_sss["sss"])[0,1]
+print ("correlation between SST and SSS:", sst_sss_correlation)
+
+print ("correlation between SST and SSS:", sst_sss_correlation)
