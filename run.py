@@ -440,3 +440,15 @@ sst_sss_correlation=np.corrcoef(df_sst_sss["sst"], df_sst_sss["sss"])[0,1]
 print ("correlation between SST and SSS:", sst_sss_correlation)
 
 print ("correlation between SST and SSS:", sst_sss_correlation)
+
+#now to visualise this correlation
+#I have chosen alpha = 0.5 to make the points semi-transparent, which helps to visualize overlapping points in dense areas of the scatter plot.
+
+plt.figure(figsize=(10, 6))
+plt.scatter(df_sst_sss["sst"], df_sst_sss["sss"], alpha=0.5)
+plt.title("Correlation between SST and SSS")
+plt.xlabel("Sea Surface Temperature (°C)")
+plt.ylabel("Sea Surface Salinity (PSU)")
+plt.show()
+
+#Now 
