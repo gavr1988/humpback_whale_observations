@@ -457,51 +457,196 @@ plt.xlabel("Sea Surface Temperature (°C)")
 plt.ylabel("Sea Surface Salinity (PSU)")
 plt.show()
 
-#Now I will be using Scikitlearn to make predictions of Sea Surface Temperature
-#The way to do this will be to use a linear regression. 
-#The liunear regression will be used to predict the sea surface temperature.
-#The reason I am using Linear regression is because it is a simple and effective method for predicting a continuous variable based on one or more predictor variables.
-#In order to troubleshoot the linearregression i utilised this documentation: 
-#https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html 
+# Now I will use Scikit-learn to make predictions of Sea Surface Temperature (SST).
+# I will compare three regression models to investigate how model complexity affects prediction accuracy.
+# Linear Regression will provide a simple baseline model, while Decision Tree Regression will allow
+# more complex relationships between the predictor variables and SST to be captured.
+# SST is a continuous numerical variable, so regression models are appropriate for this analysis.
+# In order to troubleshoot the Linear Regression model I utilised this documentation:
+# https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html
 
-#I will be using the following columns as predictors: date_year, month, decimalLatitude, decimalLongitude.
-#I will be using the sst column as the target variable
-#i will create a function that contains the features i want to use
+# I will be using the following columns as predictors:
+# date_year, month, decimalLatitude and decimalLongitude.
+# The SST column will be used as the target variable.
 
 features = ["date_year", "month", "decimalLatitude", "decimalLongitude"]
 
-#The x will be what i am using to make the predictions
+# The x values contain the predictor variables that will be used to make the SST predictions.
 x= df_sst[features]
-#The y will be what i am trying to predict
+
+# The y values contain the SST values that I am trying to predict.
 y = df_sst["sst"]
 
-#i will be training the data using 80% of the data and testing with the remaining 20%.
+# I will split the dataset so that 80% of the observations are used for training
+# and the remaining 20% are used for testing.
+# random_state=42 ensures that the same random split is produced each time the code is run.
 
 X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
 
+
+# Linear Regression Model
+
+# I will first create a Linear Regression model.
+# This provides a simple baseline model against which the Decision Tree models can be compared.
+
 model_underfit = LinearRegression()
-#training the data
+
+# Training the model using the training data.
 model_underfit.fit(X_train,y_train)
-#predicting the outcome 
+
+# Using the trained model to predict SST values for the test data.
 pred_underfit_value = model_underfit.predict(X_test)
 
 print ("Predicted values for underfit model:", pred_underfit_value)
 
-#Now we will try the overfit model
+# Unrestricted Decision Tree Model
+
+# Now I will create a Decision Tree Regressor with no maximum depth.
+# Allowing the tree to continue growing gives the model much more flexibility
+# and allows it to capture complex relationships within the training data.
+# However, an unrestricted Decision Tree can potentially overfit by learning
+# the training data in excessive detail.
+
 model_overfit = DecisionTreeRegressor(max_depth=None, random_state=42)
-#training the data
+
+# Training the model using the training data.
 model_overfit.fit (X_train, y_train)
-#predicting the outcome
+
+# Using the trained model to predict SST values for the test data.
 pred_overfit_value = model_overfit.predict(X_test)
 
 print ("Predicted values for overfit model:", pred_overfit_value)
 
-#Now we will try the optimal model which is the simple linear regression model prediction
-#Max depth is set to 3 to prevent overfitting and ensure that the model generalizes well to new data.
+# LIMITED-DEPTH DECISION TREE MODEL
+
+
+# Now I will try a simpler Decision Tree model with a maximum depth of 3.
+# Limiting the maximum depth reduces the complexity of the Decision Tree
+# and can reduce the risk of overfitting.
+# I have labelled this model as the optimal model for comparison,
+# although its performance still needs to be evaluated against the other models.
+
 model_optimal = DecisionTreeRegressor(max_depth=3, random_state=42)
 model_optimal.fit(X_train, y_train)
 pred_optimal_value = model_optimal.predict(X_test)
 print ("Predicted values for optimal model:", pred_optimal_value)
 
+#Model evaluation using RMSE
+
+# The performance of the models will be evaluated using Root Mean Squared Error (RMSE).
+# RMSE measures the difference between the SST values predicted by the model
+# and the actual SST values in the test dataset.
+# Because SST is measured in degrees Celsius, RMSE can also be interpreted in degrees Celsius.
+# A lower RMSE indicates that the predicted values are closer to the actual SST values.
+
+rmse_under = np.sqrt(mean_squared_error(y_test, pred_underfit_value))
+rmse_over = np.sqrt(mean_squared_error(y_test, pred_overfit_value))
+rmse_optimal = np.sqrt(mean_squared_error(y_test, pred_optimal_value))
+
+print("Root Mean Squared Error (RMSE) for Underfit Model:", f"{rmse_under:.2f}")
+print("Root Mean Squared Error (RMSE) for Overfit Model:", f"{rmse_over:.2f}")
+print("Root Mean Squared Error (RMSE) for Optimal Model:", f"{rmse_optimal:.2f}")
+
+# I will use the model labelled as optimal to produce the final predictions
+# and calculate its final RMSE on the test dataset.
+
+final_preds = model_optimal.predict (X_test)
+final_rmse = np.sqrt (mean_squared_error (y_test, final_preds))
+print (f"Final RMSE:  {final_rmse:.2f}")
+
+#Initial Interpretation of Test Results
+
+# The Linear Regression model has an RMSE of 1.89°C.
+# This means that it has the largest prediction error of the three models.
+# This suggests that a simple linear relationship is not flexible enough
+# to capture all of the patterns between year, month, geographical location and SST.
+
+# The unrestricted Decision Tree has an RMSE of 0.05°C.
+# This represents an extremely small prediction error on the test dataset.
+# However, because the Decision Tree has no maximum depth, it is highly complex
+# and could potentially fit the training data too closely.
+
+# The Decision Tree with a maximum depth of 3 has an RMSE of 0.38°C.
+# This is considerably lower than the Linear Regression model
+# and indicates that its SST predictions are fairly close to the actual values.
+
+# To investigate whether any of the models are overfitting,
+# I will compare their performance on the training data with their
+# performance on the testing data.
+
+#Training and testing RMSE for linear regression
+# Predictions on training data.
+
+train_pred = model_underfit.predict(X_train)
+
+# RMSE on training data.
+
+train_rmse = np.sqrt(mean_squared_error(y_train, train_pred))
+
+# RMSE on testing data.
+
+test_rmse = np.sqrt(mean_squared_error(y_test, pred_underfit_value))
+
+print("Training RMSE:", f"{train_rmse:.2f}")
+print("Testing RMSE:", f"{test_rmse:.2f}")
 
 
+
+#Training and testing rmse for unrestricted decision tree
+
+# I will now repeat the same process for the unrestricted Decision Tree.
+
+train_pred = model_overfit.predict(X_train)
+train_rmse = np.sqrt(mean_squared_error(y_train, train_pred))
+test_rmse = np.sqrt(mean_squared_error(y_test, pred_overfit_value))
+
+print ("Training RMSE for Overfit Model:", f"{train_rmse:.2f}")
+print ("Testing RMSE for Overfit Model:", f"{test_rmse:.2f}")
+
+
+#Training and Testing RMSE for limited-depth decision tree
+
+# Finally, I will compare the training and testing RMSE
+# for the Decision Tree with a maximum depth of 3.
+
+train_pred = model_optimal.predict(X_train)
+train_rmse = np.sqrt(mean_squared_error(y_train, train_pred))
+test_rmse = np.sqrt(mean_squared_error(y_test, pred_optimal_value))
+
+print ("Training RMSE for Optimal Model:", f"{train_rmse:.2f}")
+print ("Testing RMSE for Optimal Model:", f"{test_rmse:.2f}")
+
+
+
+#Interpretation of Training and testing results
+
+# Linear Regression:
+# Training RMSE = 1.87°C
+# Testing RMSE = 1.89°C
+# The training and testing errors are very similar, indicating that the model
+# performs consistently on both datasets.
+# However, both errors are relatively high compared with the Decision Tree models.
+# This suggests that the Linear Regression model is underfitting the data
+# and is too simple to adequately capture the patterns in SST.
+
+# Unrestricted Decision Tree:
+# Training RMSE = 0.00°C
+# Testing RMSE = 0.05°C
+# The unrestricted Decision Tree fitted the training data almost perfectly.
+# This is expected from a highly complex Decision Tree and suggests that
+# the model has learned the training data in considerable detail.
+# Its testing RMSE is also extremely low at 0.05°C, meaning that it performed
+# very well on the current test dataset.
+# Therefore, the current results do not show a large loss of performance
+# between the training and testing data.
+# However, the perfect training fit means that the complexity of this model
+# should still be treated cautiously when considering its ability to
+# generalise to genuinely new observations.
+
+# Limited-depth Decision Tree:
+# Training RMSE = 0.37°C
+# Testing RMSE = 0.38°C
+# The training and testing RMSE values are almost identical.
+# This indicates that the model performs consistently on both the training and testing datasets.
+# It also performs considerably better than the Linear Regression modelwhile remaining much simpler than the unrestricted Decision Tree.
+# The small difference between training and testing error suggests consistent generalisation to the current test dataset. 
