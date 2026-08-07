@@ -6,8 +6,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 import sklearn as sk
+from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.tree import DecisionTreeRegressor
+from sklearn.metrics import mean_squared_error
 
 
 #loading the data frame
@@ -461,3 +463,45 @@ plt.show()
 #The reason I am using Linear regression is because it is a simple and effective method for predicting a continuous variable based on one or more predictor variables.
 #In order to troubleshoot the linearregression i utilised this documentation: 
 #https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html 
+
+#I will be using the following columns as predictors: date_year, month, decimalLatitude, decimalLongitude.
+#I will be using the sst column as the target variable
+#i will create a function that contains the features i want to use
+
+features = ["date_year", "month", "decimalLatitude", "decimalLongitude"]
+
+#The x will be what i am using to make the predictions
+x= df_sst[features]
+#The y will be what i am trying to predict
+y = df_sst["sst"]
+
+#i will be training the data using 80% of the data and testing with the remaining 20%.
+
+X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
+
+model_underfit = LinearRegression()
+#training the data
+model_underfit.fit(X_train,y_train)
+#predicting the outcome 
+pred_underfit_value = model_underfit.predict(X_test)
+
+print ("Predicted values for underfit model:", pred_underfit_value)
+
+#Now we will try the overfit model
+model_overfit = DecisionTreeRegressor(max_depth=None, random_state=42)
+#training the data
+model_overfit.fit (X_train, y_train)
+#predicting the outcome
+pred_overfit_value = model_overfit.predict(X_test)
+
+print ("Predicted values for overfit model:", pred_overfit_value)
+
+#Now we will try the optimal model which is the simple linear regression model prediction
+#Max depth is set to 3 to prevent overfitting and ensure that the model generalizes well to new data.
+model_optimal = DecisionTreeRegressor(max_depth=3, random_state=42)
+model_optimal.fit(X_train, y_train)
+pred_optimal_value = model_optimal.predict(X_test)
+print ("Predicted values for optimal model:", pred_optimal_value)
+
+
+
