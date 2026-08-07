@@ -277,7 +277,7 @@ df_sst["sst_range"] = pd.cut(
     ],
     include_lowest=True
 )
-
+#I was having trouble with the above function and had to consult chatgpt to help me with the syntax.
 # Count observations within each SST range
 sst_range_counts = (df_sst["sst_range"].value_counts().sort_index().reset_index())
 
@@ -285,11 +285,7 @@ sst_range_counts.columns = ["sst_range","observation_count"]
 
 plt.figure(figsize=(12, 6))
 
-sns.barplot(
-    data=sst_range_counts,
-    x="sst_range",
-    y="observation_count"
-)
+sns.barplot(data=sst_range_counts,x="sst_range",y="observation_count")
 
 plt.title("Whale Observations by Sea-Surface Temperature Range")
 plt.xlabel("Sea-Surface Temperature Range")
@@ -316,6 +312,16 @@ plt.tight_layout()
 plt.show()
 
 #Now I will begin my exploration of the sea-surface salinity data
+
+#Exploration of the sea-surface temperature
+
+print("sea-surface salinity (sss) analysis:")
+print ("Mean sss:", np.mean(sss_array))
+print ("Median sss:", np.median(sss_array))
+print ("Maximum sss:", np.max(sss_array))
+print ("Minimum sss:", np.min(sss_array))
+print ("Standard deviation of sss:", np.std(sss_array))
+
 
 #calculating the percentiles of the sss data
 sss_percentiles = np.percentile(sss_array, [25, 50, 75])
