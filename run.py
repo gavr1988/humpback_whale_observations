@@ -142,6 +142,14 @@ print("Season values:", sorted(df_selected["season"].unique()))
 #i must check the coordinates to ensure that they are valid.
 #I will check the unique values in the decimalLatitude column to ensure that they are all valid
 
+# Check the latitude range in the SST dataset
+print("Minimum latitude:", df_sst["decimalLatitude"].min())
+print("Maximum latitude:", df_sst["decimalLatitude"].max())
+
+# Check the longitude range in the SST dataset
+print("Minimum longitude:", df_sst["decimalLongitude"].min())
+print("Maximum longitude:", df_sst["decimalLongitude"].max())
+
 # Latitude must be between -90 and 90.
 # Longitude must be between -180 and 180.
 invalid_coordinates = df_selected[ ~df_selected["decimalLatitude"].between(-90, 90) | ~df_selected["decimalLongitude"].between(-180, 180) ]
@@ -153,12 +161,9 @@ print(df_selected[["decimalLatitude", "decimalLongitude"]].isnull().sum())
 #I will now export the cleaned dataframe to a new csv filed 
 df_selected.to_csv('whale_data_cleaned.csv', index=False)
 
-#EXPLORATION OF DATA USING NUMPY#
+#EXPLORATION OF DATA USING NUMPY
 
 #I will now begin my NumPy exploration of the data
-
-
-#I will be using Numpy to explore the data
 
 #I will begin by creating separate dataframes for the SST and SSS analysis to ensure that I do not lose any data from the original dataframe.
 #I will also be able to exclude missing measurements without changing the dataframes selected
