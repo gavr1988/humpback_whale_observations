@@ -338,7 +338,7 @@ plt.show()
 
 #Now I will begin my exploration of the sea-surface salinity data
 
-#Exploration of the sea-surface temperature
+#Exploration of the sea-surface Salinity
 
 print("sea-surface salinity (sss) analysis:")
 print ("Mean sss:", np.mean(sss_array))
