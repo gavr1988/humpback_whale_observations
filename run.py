@@ -345,7 +345,7 @@ print ("Mean sss:", np.mean(sss_array))
 print ("Median sss:", np.median(sss_array))
 print ("Maximum sss:", np.max(sss_array))
 print ("Minimum sss:", np.min(sss_array))
-print ("Standard deviation of sss:", np.std(sss_array))
+print ("Standard deviation of sss:", f"{np.std(sss_array):.2f}")
 
 
 #calculating the percentiles of the sss data
