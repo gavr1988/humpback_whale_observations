@@ -143,12 +143,12 @@ print("Season values:", sorted(df_selected["season"].unique()))
 #I will check the unique values in the decimalLatitude column to ensure that they are all valid
 
 # Check the latitude range in the SST dataset
-print("Minimum latitude:", df_sst["decimalLatitude"].min())
-print("Maximum latitude:", df_sst["decimalLatitude"].max())
+print("Minimum latitude:", df_selected["decimalLatitude"].min())
+print("Maximum latitude:", df_selected["decimalLatitude"].max())
 
 # Check the longitude range in the SST dataset
-print("Minimum longitude:", df_sst["decimalLongitude"].min())
-print("Maximum longitude:", df_sst["decimalLongitude"].max())
+print("Minimum longitude:", df_selected["decimalLongitude"].min())
+print("Maximum longitude:", df_selected["decimalLongitude"].max())
 
 # Latitude must be between -90 and 90.
 # Longitude must be between -180 and 180.
@@ -186,7 +186,7 @@ print ("Mean sst:", np.mean(sst_array))
 print ("median sst:", np.median(sst_array))
 print ("maximum sst:", np.max(sst_array))
 print ("minimum sst:", np.min(sst_array))
-print ("Standard deviation of sst:", np.std(sst_array))
+print(f"Standard deviation of sst: {np.std(sst_array):.2f}")
 
 #Exploration of Sea Surface Temperature by Season
 season_order = ["Winter", "Spring", "Summer", "Autumn"]
@@ -201,7 +201,7 @@ for season in season_order:
     print("Median SST:", np.median(season_sst))
     print("Minimum SST:", np.min(season_sst))
     print("Maximum SST:", np.max(season_sst))
-    print("Standard deviation:", np.std(season_sst))
+    print(f"Standard deviation of sst: {np.std(season_sst):.2f}")
 
 #calculating the percentiles of the sst data
 sst_percentiles = np.percentile(sst_array, [25, 50, 75])
@@ -211,7 +211,7 @@ print ("25th percentils:", sst_percentiles[0])
 print ("50th percentils:", sst_percentiles[1])
 print ("75th percentils:", sst_percentiles[2])
 
-#I now will investigate if there are any outliers in the sst data using the IQR method.
+# Investigating if there are any outliers in the sst data using the IQR method:
 sst_q1 = np.percentile(sst_array, 25)
 sst_q3 = np.percentile(sst_array, 75)
 
