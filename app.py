@@ -18,6 +18,8 @@ def load_data():
     df = pd.read_csv("whale_data_cleaned.csv")
     return df
 
+#Now the function will be called to load and store the cleaned data in a df
+df = load_data()
 
 #Main Page Title
 st.title("North Pacific Humpback Whale Analytics")
