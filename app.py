@@ -29,9 +29,49 @@ st.title("North Pacific Humpback Whale Analytics")
 st.subheader("Research Question")
 st.write("How do recorded North Pacific Humpback Whale observations vary by season and sea surface temperature between 2010 and 2025?")
 
-#Now to check if the cleaned dataset has been loaded correctly.
-st.write ("Number of records loaded:", len(df))
+# Calculate the headline statistics for the homepage.
+total_records = len(df)
 
-#A temporary code to preview the first five rows of teh dataset
-st.dataframe(df.head(5))
+earliest_year = int(df["date_year"].min())
+latest_year = int(df["date_year"].max())
+
+winter_percentage = (
+    (df["season"] == "Winter").mean() * 100
+)
+
+mean_sst = df["sst"].mean()
+
+
+# Create four columns for the headline statistics.
+col1, col2, col3, col4 = st.columns(4)
+
+
+# Display the statistics as metric cards.
+col1.metric(
+    "Recorded Observations",
+    f"{total_records:,}"
+)
+
+col2.metric(
+    "Analysis Period",
+    f"{earliest_year}–{latest_year}"
+)
+
+col3.metric(
+    "Winter Observations",
+    f"{winter_percentage:.2f}%"
+)
+
+col4.metric(
+    "Mean SST",
+    f"{mean_sst:.2f}°C"
+)
+
+#Putting a divider between the headline statistics and the rest of the page content.
+st.divider()
+
+#Why I chose this project
+
+st.subheader("Why I chose this project")
+st.write ("I chose to investigate Humpback Whale after a recent trip to Alaska, where I had the opportuinity to see humpback whales in their natural environment. This experience inspired me to explore how recorded humpback whale observations vary across the north pacidic and are associated with environmental conditions such as Sea Surface Temperature.")
 
