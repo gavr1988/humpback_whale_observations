@@ -1,7 +1,8 @@
 import streamlit as st
 import pandas as pd
 
-#In this section I have consulted ChatGPT to help me with the code for a map. I ahve also used the streamlit documentation to help me with the code.
+#In this section I have consulted ChatGPT to help me with the code for a map. I have also used the streamlit documentation to help me with the code.
+# (https://docs.streamlit.io/develop/api-reference/charts/st.map)
 
 # Configure this page.
 st.set_page_config(
@@ -91,7 +92,7 @@ if selected_year != "All":
 st.subheader("Recorded Observation Locations")
 
 
-# Show how many records are currently being displayed.
+# This will show how many records are currently being displayed.
 st.metric(
     "Records Displayed",
     f"{len(filtered_df):,}"
