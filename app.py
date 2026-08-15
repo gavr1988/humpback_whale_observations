@@ -29,3 +29,9 @@ st.title("North Pacific Humpback Whale Analytics")
 st.subheader("Research Question")
 st.write("How do recorded North Pacific Humpback Whale observations vary by season and sea surface temperature between 2010 and 2025?")
 
+#Now to check if the cleaned dataset has been loaded correctly.
+st.write ("Number of records loaded:", len(df))
+
+#A temporary code to preview the first five rows of teh dataset
+st.dataframe(df.head(5))
+
