@@ -47,3 +47,80 @@ selected_season = st.selectbox(
     "Select a season:",
     season_options
 )
+
+
+# Find the earliest and latest years in the dataset.
+min_year = int(df["date_year"].min())
+max_year = int(df["date_year"].max())
+
+
+# Create a year-range slider.
+selected_years = st.slider(
+    "Select a year range:",
+    min_value=min_year,
+    max_value=max_year,
+    value=(min_year, max_year)
+)
+
+
+
+#Filtering the data
+#I will be utilising a slider to filter the data.
+
+# Start with records inside the selected year range.
+filtered_df = df[
+    df["date_year"].between(
+        selected_years[0],
+        selected_years[1]
+    )
+].copy()
+
+
+# If the user selects a specific season, keep only records from that season.
+if selected_season != "All":
+    filtered_df = filtered_df[
+        filtered_df["season"] == selected_season
+    ]
+
+
+
+# Summary Statistics
+
+
+st.subheader("Summary Statistics")
+
+
+# Calculate statistics from the filtered dataset.
+total_records = len(filtered_df)
+
+mean_sst = filtered_df["sst"].mean()
+
+median_sst = filtered_df["sst"].median()
+
+sst_std = filtered_df["sst"].std()
+
+
+# Create four dashboard columns.
+col1, col2, col3, col4 = st.columns(4)
+
+
+# Display the filtered statistics.
+col1.metric(
+    "Recorded Observations",
+    f"{total_records:,}"
+)
+
+col2.metric(
+    "Mean SST",
+    f"{mean_sst:.2f}°C"
+)
+
+col3.metric(
+    "Median SST",
+    f"{median_sst:.2f}°C"
+)
+
+col4.metric(
+    "SST Standard Deviation",
+    f"{sst_std:.2f}°C"
+)
