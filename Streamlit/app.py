@@ -124,3 +124,11 @@ st.write(
 st.info(
     "The dataset contains recorded humpback whale observations. The number of records should not be interpreted as a direct measure of humpback whale population or abundance."
 )
+
+# Configure this page.
+st.set_page_config(
+    page_title="SST & Seasonal Analysis",
+    page_icon="🌊",
+    layout="wide"
+)
+
