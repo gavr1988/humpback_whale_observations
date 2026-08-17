@@ -90,6 +90,7 @@ humpback_whale_observations/
 ├── Procfile
 ├── setup.sh
 └── visualisations.py
+```
 
 ### Main Files and Folders
 
@@ -112,3 +113,4 @@ humpback_whale_observations/
 - `.gitignore` prevents files such as the large original dataset from being tracked by Git such as the original data downloaded from OBIS.
 
 - `README.md` contains the main documentation for the project.
+
