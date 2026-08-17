@@ -109,14 +109,6 @@ st.write(
     "The prediction is based on the year, month, latitude and longitude entered below."
 )
 
-st.write (
-    "The months are numbered 1-12, with 1 representing January and 12 representing December."
-)
-
-st.write (
-    "The lattitude and longitude should be entered in decimal degrees. For example, 55.0 represents 55°N and -135.0 represents 135°W."
-    "The maximum lattitude is 90°N and the minimum is 90°S. The maximum longitude is 180°E and the minimum is 180°W."
-)
 
 
 # User Input
