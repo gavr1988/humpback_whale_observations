@@ -1,7 +1,9 @@
 import streamlit as st
+import pandas as pd
+from pathlib import Path
 
 
-#Page Configuration
+# Page Configuration
 
 st.set_page_config(
     page_title="Methodology & Limitations",
@@ -10,7 +12,7 @@ st.set_page_config(
 )
 
 
-#Page Title and Introduction
+# Page Title and Introduction
 
 st.title("Methodology & Limitations")
 
@@ -21,7 +23,10 @@ st.write(
 )
 
 
-#About the Dataset
+data_path = Path(__file__).resolve().parents[1] / "whale_data_cleaned.csv"
+
+
+# About the Dataset
 
 with st.expander("About the Dataset"):
 
@@ -89,7 +94,7 @@ with st.expander("Data Cleaning"):
     )
 
 
-#Statistical Analysis
+# Statistical Analysis
 
 with st.expander("Statistical Analysis"):
 
