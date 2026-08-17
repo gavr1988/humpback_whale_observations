@@ -1,5 +1,9 @@
 # North Pacific Humpback Whale Observation Analysis
 
+## Repository
+
+[GitHub Repository](https://github.com/gavr1988/humpback_whale_observations)
+
 ## Project Overview
 
 This capstone project investigates recorded North Pacific humpback whale observations and explores how these observations vary by season and sea-surface temperature between 2010 and 2025.
@@ -49,3 +53,62 @@ The cleaned dataset contains 118,209 recorded observations.
 During data cleaning, missing SST and SSS values were not estimated or replaced. Records with missing environmental measurements were excluded only from analysis steps that required those variables.
 
 Git and GitHub were used for version control so that changes to the project files, code and documentation could be tracked throughout the development of the project.
+
+## Project Structure
+
+## Project Structure
+
+The project has been organised into separate folders for the Jupyter Notebook, Streamlit application and visualisations.
+
+
+## Project Structure
+
+The project has been organised into separate folders for the Jupyter Notebook, Streamlit application and visualisations.
+
+```text
+humpback_whale_observations/
+│
+├── figures/
+│   └── Contains visualisations created during the analysis.
+│
+├── jupyter_notebooks/
+│   └── Contains the main Jupyter Notebook used for data cleaning,
+│       statistical analysis and machine learning.
+│
+├── streamlit/
+│   ├── app.py
+│   ├── whale_data_cleaned.csv
+│   └── pages/
+│       ├── 1_sst_seasonal_analysis.py
+│       ├── 2_observation_map.py
+│       ├── 3_sst_prediction.py
+│       └── 4_methodology_and_limitations.py
+│
+├── .gitignore
+├── README.md
+├── requirements.txt
+├── Procfile
+├── setup.sh
+└── visualisations.py
+
+### Main Files and Folders
+
+- `jupyter_notebooks/` contains the main Jupyter Notebook used for data cleaning, exploratory analysis, statistical testing and machine learning as well as the graphical representation of the analysis. 
+
+- `streamlit/` contains the interactive Streamlit application.
+
+- `streamlit/app.py` is the main homepage for the Streamlit dashboard.
+
+- `streamlit/pages/` contains the additional pages for seasonal analysis, the observation map, SST prediction, and methodology and limitations.
+
+- `whale_data_cleaned.csv` contains the cleaned dataset used by the Streamlit application.
+
+- `figures/` contains visualisations created in the Jupyter Notebook during the project.
+
+- `requirements.txt` lists the Python packages required to run the project.
+
+- `Procfile` and `setup.sh` are used for deployment.
+
+- `.gitignore` prevents files such as the large original dataset from being tracked by Git such as the original data downloaded from OBIS.
+
+- `README.md` contains the main documentation for the project.
