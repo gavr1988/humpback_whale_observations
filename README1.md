@@ -27,7 +27,6 @@ https://mapper.obis.org/?taxonid=137092&areaid=31908&startdate=2010-01-01#
 
 The dataset used for this project was downloaded on 24 July 2026.
 
-## Data Management
 
 ## Data Management
 
