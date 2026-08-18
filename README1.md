@@ -110,7 +110,25 @@ humpback_whale_observations/
 
 - `Procfile` and `setup.sh` are used for deployment.
 
-- `.gitignore` prevents files such as the large original dataset from being tracked by Git such as the original data downloaded from OBIS.
+- `.gitignore` prevents files such as the large original dataset (`whale_data_originial`) from being tracked by Git such as the original data downloaded from OBIS.
 
 - `README.md` contains the main documentation for the project.
+
+## Methodology
+
+The Project followed an exploratory data analysis to investigate seasonal patterns in recorded humpback whale observations in the North Pacific region whilst also looking into the sea-surface temperature associated with the observations.
+
+The main stages odf the project were:
+
+1. The original OBIS dataset was cleaned and filtered using pandas. 
+2. The relevant variables such as date, month, latitude, longitude, SST and SSS were then selected. 
+3. The data was filtered to only display records between 2010 and 2025. 
+4. A season variable was then created from the observation month. 
+5. Descriptive statistics were calculated for SST and SSS. 
+6. Seasonal observation patterns were explored using visualisations and basic probability. 
+7. A T-Test was then used to compare winter and Summer mean SST (this was decided on from the analysis).
+8. Correlation analysis was used to investigate the relationship between SST and SSS.
+9. A series of regression models were created using Scikit-learn to find the best model to predict SST from year, month, latitude and longitude.
+10. The main findings were presented through an interactive Streamlit application. 
+
 
