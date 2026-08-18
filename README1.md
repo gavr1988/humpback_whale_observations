@@ -54,7 +54,6 @@ During data cleaning, missing SST and SSS values were not estimated or replaced.
 
 Git and GitHub were used for version control so that changes to the project files, code and documentation could be tracked throughout the development of the project.
 
-## Project Structure
 
 ## Project Structure
 
@@ -118,7 +117,7 @@ humpback_whale_observations/
 
 The Project followed an exploratory data analysis to investigate seasonal patterns in recorded humpback whale observations in the North Pacific region whilst also looking into the sea-surface temperature associated with the observations.
 
-The main stages odf the project were:
+The main stages of the project were:
 
 1. The original OBIS dataset was cleaned and filtered using pandas. 
 2. The relevant variables such as date, month, latitude, longitude, SST and SSS were then selected. 
@@ -131,4 +130,9 @@ The main stages odf the project were:
 9. A series of regression models were created using Scikit-learn to find the best model to predict SST from year, month, latitude and longitude.
 10. The main findings were presented through an interactive Streamlit application. 
 
+## Key Findings
 
+The analysis identified several seasonal and environmental patterns within the recorded humpback whale observations. 
+
+- Winter contained the largest number of recorded observations with 38,034 records. 
+- Winter observations area ssociated with the highest mean SST at approximately 24.36C, whilst summer observa
