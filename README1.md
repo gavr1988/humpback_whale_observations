@@ -183,4 +183,10 @@ I came across several practical challenges during the development of this projec
 
 Challenge : The original dataset from OBIS was approximately 333.1 MB, which made it too large to upload to the GitHub repository associated with this project. 
 
-Solution 1: In order to deal with this the orignal dataset was stored locally and added to the `.gitignore`. A smaller cleaned dataset was created and used for the analysis and creation of the streamlit.  
+Solution : In order to deal with this the orignal dataset was stored locally and added to the `.gitignore`. A smaller cleaned dataset was created and used for the analysis and creation of the streamlit.  
+
+### Missing and Incorrect Month Values
+
+Challenge: Some records contained missing or unreliable values in the month column.
+
+Solution: To address this, the observation date was converted into a datetime format and the month was extracted from the date where possible. This allowed the season variable to be created more reliably.
