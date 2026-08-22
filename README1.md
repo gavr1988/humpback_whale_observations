@@ -224,3 +224,20 @@ Challenges: During the project I received feedback that the naming conventions u
 Solution: The repository was reorganised to use clearer and more consistent lowercase `snake_case` naming for Python files and folders. This improved the readability and organisation of the project. I also gave more detailed commits after reciving this feedback.
 
 
+## Limitations
+
+There are several limitations that should be considered when interpreting the findings of this project.
+
+- The dataset contains recorded humpback whale observations rather than a complete measure of the humpback whale population. A higher number of records does not necessarily mean that more whales were present, as observation numbers may also be influenced by survey effort, tourism, accessibility and reporting practices.
+
+- The dataset does not contain reliable information about locations where whales were searched for but not observed. Because of this, the project cannot be used to calculate the true probability of whale presence or absence.
+
+- Some records were missing SST and SSS values. These values were not estimated, and records with missing measurements were excluded only from analyses that required those variables.
+
+- Geographical location may influence the seasonal SST patterns. For example, the higher mean SST associated with Winter observations should not be interpreted as meaning that the whole North Pacific is warmer in Winter.
+
+- The hypothesis test used very large sample sizes. With large datasets, even relatively small differences can produce very small p-values, so the statistical results were considered alongside descriptive statistics and visualisations.
+
+- The machine-learning models were evaluated using a random training and testing split. Similar geographical or temporal records may therefore have appeared in both datasets, which could make model performance appear better than it would on completely new years or geographical areas.
+
+- The relationships identified between season, SST, SSS and recorded observations represent associations within the dataset and should not be interpreted as evidence of causation.
