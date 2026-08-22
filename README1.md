@@ -334,3 +334,17 @@ Throughout the project I encountered problems involving missing data, file paths
 I also learned the importance of reviewing results as a project changes. For example, after filtering the dataset to the final 2010–2025 period, some earlier statistical results and written interpretations needed to be updated. This showed me why code, outputs and documentation need to remain consistent with each other.
 
 Overall, the project has improved my confidence in working independently with a real-world dataset and has given me a better understanding of the full data analysis process, from obtaining and cleaning data through to analysis, machine learning, visualisation and presenting the final results.
+
+## Deployment
+
+The Streamlit application is planned to be deployed using Heroku.
+
+Once deployed, the live application link will be added here.
+
+The deployment files included in the repository are:
+
+- `Procfile`
+- `setup.sh`
+- `requirements.txt`
+
+These files provide Heroku with the information required to install the project dependencies and run the Streamlit application.
