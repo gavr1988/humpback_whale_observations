@@ -135,4 +135,13 @@ The main stages of the project were:
 The analysis identified several seasonal and environmental patterns within the recorded humpback whale observations. 
 
 - Winter contained the largest number of recorded observations with 38,034 records. 
-- Winter observations area ssociated with the highest mean SST at approximately 24.36C, whilst summer observa
+
+- Winter observations area ssociated with the highest mean SST at approximately 24.36C, whilst summer observations had a much lower SST of approximately 14.43 oC. This should not be interpreted as meaning the whole north pacific is warmer in Winter, as the pattern may partially reflect differences in where whales were recorded during each session.
+
+ A T-test comparing Winter and Summer SST produced a t-statistic of approximately 286.23 and a p-value displayed by Python as 0.0. The p-value is effectively zero and below the 0.05 significance level, so the null hypothesis was rejected.
+
+- The correlation between SST and SSS was approximately 0.56, indicating a moderate positive relationship between the two environmental variables within the observation data.
+
+- Of the three machine-learning models tested, the unrestricted Decision Tree produced the lowest testing RMSE at approximately 0.05°C. However, it also fitted the training data almost perfectly, so its ability to generalise to genuinely new years or geographical areas should be treated cautiously.
+
+Overall, the results show clear seasonal and environmental differences within the recorded observations. However, these patterns represent associations within the available data and should not be interpreted as direct evidence of whale abundance or causation.
