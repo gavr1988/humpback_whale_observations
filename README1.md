@@ -313,3 +313,24 @@ The Python packages listed in `requirements.txt` should be reviewed periodically
 Any updates to the project should be tested locally before being committed to GitHub and deployed to the live application.
 
 Git and GitHub can continue to be used to track changes and provide a record of how the project develops over time.
+
+## How to run the Project
+
+
+## Reflection and Learning
+
+This project allowed me to develop my skills in Python, data analysis, statistics, machine learning and data visualisation while working with a large real-world dataset surrounding a topic that interests me.
+
+The original OBIS dataset contained a large number of variables, missing values and some issues with dates and months. Working through these problems helped me understand how important it is to check the quality and structure of data before relying on the results for analytical purposes.
+
+I also developed my understanding of descriptive statistics, probability, hypothesis testing and correlation. Rather than only calculating the results, I learned to consider what the results actually mean and the limitations of the conclusions that can be made from them.
+
+The machine-learning section gave me experience using Scikit-learn to create, train and compare regression models. I learned how Root Mean Squared Error (RMSE) can be used to compare prediction error and also learned that a model performing very well on a test dataset does not automatically mean that it will perform equally well on completely new data.
+
+Developing the Streamlit application was another important part of the project for me. I had very little experience with Streamlit, and it gave me the opportunity to turn the Jupyter Notebook analysis into an interactive application that can be used by somebody without needing to understand or run the underlying Python code. Whilst I utilised AI to support the creation of the Streamlit application, I feel I was still able to demonstrate my own ideas and will continue to practise using Streamlit in other projects I take on.
+
+Throughout the project I encountered problems involving missing data, file paths, machine-learning models, project organisation and deployment preparation. Solving these problems helped improve my confidence in troubleshooting code and breaking larger problems into smaller steps.
+
+I also learned the importance of reviewing results as a project changes. For example, after filtering the dataset to the final 2010–2025 period, some earlier statistical results and written interpretations needed to be updated. This showed me why code, outputs and documentation need to remain consistent with each other.
+
+Overall, the project has improved my confidence in working independently with a real-world dataset and has given me a better understanding of the full data analysis process, from obtaining and cleaning data through to analysis, machine learning, visualisation and presenting the final results.
