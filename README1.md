@@ -255,3 +255,24 @@ There are several limitations that should be considered when interpreting the fi
 - The original OBIS data source is acknowledged throughout the project. The original dataset is stored separately from the cleaned dataset so that the cleaning and analysis process can be checked and reproduced.
 
 - AI assistance was also used during the project. AI-generated suggestions were treated as guidance rather than automatically assumed to be correct, and code, statistical results and interpretations were checked against the actual outputs from the dataset before being included in the final project.
+
+## Use of AI
+
+AI, specifically ChatGPT, was used as a support tool during several stages of this project.
+
+It was used to help with:
+
+- Identifying the relevant variables within the original OBIS dataset to use in my analysis.
+- Troubleshooting Python errors during data cleaning and analysis throughout the project completion.
+- Understanding statistical concepts and terminology such as hypothesis testing, p-values and Root Mean Squared Error (RMSE).
+- Troubleshooting issues encountered while developing the machine-learning models.
+- Supporting the interpretation of statistical and machine-learning outputs.
+- Learning how to structure and develop the multipage Streamlit application.
+- Improving project organisation and documentation.
+
+AI-generated suggestions were not automatically assumed to be correct. Code was run and tested in the Jupyter Notebook and Streamlit application, and statistical results and interpretations were checked against the actual outputs from the dataset.
+
+During the project, I found that AI tools can sometimes provide incorrect code, make assumptions or confidently present inaccurate information. For this reason, AI was used as a learning and troubleshooting tool rather than as a replacement for checking the analysis myself.
+
+The responsibility for the final code, analysis, interpretation and conclusions remained with me.
+
