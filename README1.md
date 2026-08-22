@@ -202,3 +202,13 @@ Solution: The analysis was rerun and the written interpretations were checked an
 Challenge: Errors were encountered while preparing and training the regression models, particularly when dealing with missing values and selecting suitable input variables.
 
 Solution: The data was checked before modelling, records with missing values required by the model were removed, and the models were evaluated using RMSE so that their performance could be compared.
+
+### 5. File Paths and Project Organisation
+
+Challenge: As the project structure developed, some file paths stopped working because files and folders had been reorganised.
+
+Solution: The working directory was checked and file paths were updated so that the Jupyter Notebook and Streamlit application could locate the required datasets correctly.
+
+
+
+
