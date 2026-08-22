@@ -244,17 +244,17 @@ There are several limitations that should be considered when interpreting the fi
 
 ## Ethics and Data Governance
 
-- The project uses environmental and wildlife observation data obtained from the Ocean Biodiversity Information System (OBIS). The dataset does not contain personal information such as names, addresses or contact details.
+The project uses environmental and wildlife observation data obtained from the Ocean Biodiversity Information System (OBIS). The dataset does not contain personal information such as names, addresses or contact details.
 
-- However, ethical considerations are still important when working with biodiversity data. The dataset includes geographical coordinates showing where humpback whales have been recorded, so wildlife-location information should be handled responsibly. In this project, the coordinates are used to investigate broad geographical patterns rather than to encourage the location of individual animals.
+However, ethical considerations are still important when working with biodiversity data. The dataset includes geographical coordinates showing where humpback whales have been recorded, so wildlife-location information should be handled responsibly. In this project, the coordinates are used to investigate broad geographical patterns rather than to encourage the location of individual animals.
 
-- Care was also taken when interpreting and presenting the results. Observation counts are described as recorded observations rather than direct measures of whale abundance, because differences in survey effort, accessibility, tourism and reporting practices may influence the number of records.
+Care was also taken when interpreting and presenting the results. Observation counts are described as recorded observations rather than direct measures of whale abundance, because differences in survey effort, accessibility, tourism and reporting practices may influence the number of records.
 
-- The same approach was taken with the environmental analysis. Relationships between season, SST, SSS and recorded observations are described as associations and are not presented as proof that one variable directly causes changes in whale distribution.
+The same approach was taken with the environmental analysis. Relationships between season, SST, SSS and recorded observations are described as associations and are not presented as proof that one variable directly causes changes in whale distribution.
 
-- The original OBIS data source is acknowledged throughout the project. The original dataset is stored separately from the cleaned dataset so that the cleaning and analysis process can be checked and reproduced.
+The original OBIS data source is acknowledged throughout the project. The original dataset is stored separately from the cleaned dataset so that the cleaning and analysis process can be checked and reproduced.
 
-- AI assistance was also used during the project. AI-generated suggestions were treated as guidance rather than automatically assumed to be correct, and code, statistical results and interpretations were checked against the actual outputs from the dataset before being included in the final project.
+AI assistance was also used during the project. AI-generated suggestions were treated as guidance rather than automatically assumed to be correct, and code, statistical results and interpretations were checked against the actual outputs from the dataset before being included in the final project.
 
 ## Use of AI
 
@@ -276,3 +276,40 @@ During the project, I found that AI tools can sometimes provide incorrect code, 
 
 The responsibility for the final code, analysis, interpretation and conclusions remained with me.
 
+## Future Development and Maintenance
+
+Although the current project answers the main research question, there are several ways it could be developed further.
+
+### Data Updates
+
+The OBIS database may continue to receive new humpback whale observation records. Future versions of the project could download updated data and repeat the existing cleaning process to include more recent observations.
+
+When the source data is updated, the cleaned dataset would also need to be regenerated so that the Jupyter Notebook and Streamlit application continue to use the latest available information.
+
+### Machine-Learning Model
+
+If the dataset is updated, the machine-learning models would need to be retrained and evaluated using the new data.
+
+A future improvement would be to evaluate the model using observations from different years or geographical regions rather than relying only on a random train/test split. This would provide a stronger test of how well the model performs on genuinely new data.
+
+Additional environmental variables could also be investigated to determine whether they improve SST prediction.
+
+### Further Analysis
+
+Future analysis could investigate the geographical distribution of recorded humpback whale observations in greater detail.
+
+This could include examining how observation locations change between seasons and years and investigating whether geographical patterns help explain the differences in SST associated with the recorded observations.
+
+### Streamlit Application
+
+The Streamlit application could be expanded as further analysis is completed. Additional visualisations, filters or environmental variables could be added to allow users to explore the dataset in more detail.
+
+The application should also be tested after any changes to the dataset, model or Python dependencies to ensure that all pages continue to work correctly.
+
+### Project Maintenance
+
+The Python packages listed in `requirements.txt` should be reviewed periodically and updated when required.
+
+Any updates to the project should be tested locally before being committed to GitHub and deployed to the live application.
+
+Git and GitHub can continue to be used to track changes and provide a record of how the project develops over time.
