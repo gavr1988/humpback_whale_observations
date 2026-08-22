@@ -1,7 +1,10 @@
 import streamlit as st
 import pandas as pd
+from pathlib import Path
 
 #Making the browser tab and page layout
+# Create a reliable path to the cleaned dataset.
+data_path = Path(__file__).resolve().parent / "whale_data_cleaned.csv"
 
 st.set_page_config(
     page_title="Humpback Whale Analytics",
@@ -15,7 +18,7 @@ st.set_page_config(
 
 @st.cache_data
 def load_data():
-    df = pd.read_csv("whale_data_cleaned.csv")
+    df = pd.read_csv(data_path)
     return df
 
 #Now the function will be called to load and store the cleaned data in a df

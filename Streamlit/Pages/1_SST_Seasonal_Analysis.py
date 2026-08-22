@@ -1,6 +1,9 @@
 import streamlit as st
 import pandas as pd
+from pathlib import Path
 
+# The page is inside the pages folder, while the CSV is one folder above.
+data_path = Path(__file__).resolve().parents[1] / "whale_data_cleaned.csv"
 
 # Configure this page.
 st.set_page_config(
@@ -14,9 +17,8 @@ st.set_page_config(
 
 @st.cache_data
 def load_data():
-    df = pd.read_csv("whale_data_cleaned.csv")
+    df = pd.read_csv(data_path)
     return df
-
 
 df = load_data()
 
