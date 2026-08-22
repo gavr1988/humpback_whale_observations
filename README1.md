@@ -337,9 +337,10 @@ Overall, the project has improved my confidence in working independently with a 
 
 ## Deployment
 
-The Streamlit application is planned to be deployed using Heroku.
+The Streamlit application has been deployed using Heroku.
 
-Once deployed, the live application link will be added here.
+The link to the deployment is
+
 
 The deployment files included in the repository are:
 
@@ -348,3 +349,4 @@ The deployment files included in the repository are:
 - `requirements.txt`
 
 These files provide Heroku with the information required to install the project dependencies and run the Streamlit application.
+
