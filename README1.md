@@ -174,3 +174,13 @@ THis page uses the trained decision tree regression model to estimate sea-surfac
 This explains the data-cleaning process, statistical analysis , machine learning, project limitations, ethical considerations and use of AI.
 
 The reason this streamlit was designed and created was designed to make the results easier to explore and visualise without requiring the user to run through the entire jupyter notebook or even understanding the python coding. 
+
+## Challenges and Solutions
+
+I came across several practical challenges during the development of this project. 
+
+### 1. A Large Dataset
+
+Challenge : The original dataset from OBIS was approximately 333.1 MB, which made it too large to upload to the GitHub repository associated with this project. 
+
+Solution 1: In order to deal with this the orignal dataset was stored locally and added to the `.gitignore`. A smaller cleaned dataset was created and used for the analysis and creation of the streamlit.  
