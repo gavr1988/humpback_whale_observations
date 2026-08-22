@@ -217,3 +217,10 @@ Challenge: I had limited previous experience using Streamlit before this project
 
 Soluition: I utilised AI to assist in the development of the application and did so gradually, starting with the homepage and then adding separate pages for seasonal analysis, the observation map, SST prediction, and methodology and limitations. Each page was tested as it was developed.
 
+### 7. Naming Conventions
+
+Challenges: During the project I received feedback that the naming conventions used for files and folders could be improved alongside my commit titles for github. 
+
+Solution: The repository was reorganised to use clearer and more consistent lowercase `snake_case` naming for Python files and folders. This improved the readability and organisation of the project. I also gave more detailed commits after reciving this feedback.
+
+
