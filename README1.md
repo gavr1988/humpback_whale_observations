@@ -212,10 +212,10 @@ Solution: The working directory was checked and file paths were updated so that 
 
 ### 6. Learning Streamlit
 
-Challenge: I had limited previous experience using Streamlit before this project, so developing a multipage application presented an additional learning challenge.
+Challenge: I had limited previous experience using Streamlit before this project, so developing a multipage application presented an additional learning challenge.  
 
 
-Soluition: I utilised AI to assist in the development of the application and did so gradually, starting with the homepage and then adding separate pages for seasonal analysis, the observation map, SST prediction, and methodology and limitations. Each page was tested as it was developed.
+Soluition: I utilised AI to assist in the development of the application and did so gradually, starting with the homepage and then adding separate pages for seasonal analysis, the observation map, SST prediction, and methodology and limitations. Each page was tested as it was developed. The original plan for the Streamlit app can be found in .`streamlit_dashboard_plan.md`.
 
 ### 7. Naming Conventions
 
@@ -241,3 +241,17 @@ There are several limitations that should be considered when interpreting the fi
 - The machine-learning models were evaluated using a random training and testing split. Similar geographical or temporal records may therefore have appeared in both datasets, which could make model performance appear better than it would on completely new years or geographical areas.
 
 - The relationships identified between season, SST, SSS and recorded observations represent associations within the dataset and should not be interpreted as evidence of causation.
+
+## Ethics and Data Governance
+
+- The project uses environmental and wildlife observation data obtained from the Ocean Biodiversity Information System (OBIS). The dataset does not contain personal information such as names, addresses or contact details.
+
+- However, ethical considerations are still important when working with biodiversity data. The dataset includes geographical coordinates showing where humpback whales have been recorded, so wildlife-location information should be handled responsibly. In this project, the coordinates are used to investigate broad geographical patterns rather than to encourage the location of individual animals.
+
+- Care was also taken when interpreting and presenting the results. Observation counts are described as recorded observations rather than direct measures of whale abundance, because differences in survey effort, accessibility, tourism and reporting practices may influence the number of records.
+
+- The same approach was taken with the environmental analysis. Relationships between season, SST, SSS and recorded observations are described as associations and are not presented as proof that one variable directly causes changes in whale distribution.
+
+- The original OBIS data source is acknowledged throughout the project. The original dataset is stored separately from the cleaned dataset so that the cleaning and analysis process can be checked and reproduced.
+
+- AI assistance was also used during the project. AI-generated suggestions were treated as guidance rather than automatically assumed to be correct, and code, statistical results and interpretations were checked against the actual outputs from the dataset before being included in the final project.
