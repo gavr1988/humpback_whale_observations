@@ -124,3 +124,57 @@ col4.metric(
     "SST Standard Deviation",
     f"{sst_std:.2f}°C"
 )
+
+# Add a divider between the summary statistics and the charts.
+st.divider()
+
+
+# Recorded Observations by Season and Mean SST by Season
+
+st.subheader("Recorded Observations by Season")
+
+# Set the seasons in the order I want them to appear.
+season_order = [
+    "Winter",
+    "Spring",
+    "Summer",
+    "Autumn"
+]
+
+# Count how many recorded observations belong to each season.
+# This uses filtered_df, so the chart will respond to the filters above.
+observations_by_season = (
+    filtered_df["season"]
+    .value_counts()
+    .reindex(season_order)
+    .dropna()
+)
+
+# Display the seasonal observation counts as a bar chart.
+st.bar_chart(
+    observations_by_season,
+    x_label="Season",
+    y_label="Recorded Observations"
+)
+
+
+# Mean SST by season
+
+st.subheader("Mean Sea-Surface Temperature by Season")
+
+# Group the filtered observations by season
+# and calculate the average SST for each season.
+mean_sst_by_season = (
+    filtered_df
+    .groupby("season")["sst"]
+    .mean()
+    .reindex(season_order)
+    .dropna()
+)
+
+# Display the mean SST values as a bar chart.
+st.bar_chart(
+    mean_sst_by_season,
+    x_label="Season",
+    y_label="Mean SST (°C)"
+)

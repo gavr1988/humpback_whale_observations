@@ -386,6 +386,10 @@ The following data sources, articles and documentation were used during the deve
   Scikit-learn documentation was used to support the development and troubleshooting of the regression models used in this project.  
   [Linear Regression Documentation](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html)
 
+  - **Streamlit**  
+  Streamlit documentation was used to support the development of the interactive application, including the geographical observation map.  
+  [Streamlit `st.map` Documentation](https://docs.streamlit.io/develop/api-reference/charts/st.map)
+
 ### Acknowledgements
 
 AI assistance, specifically ChatGPT, was used as a learning and troubleshooting tool during the development of this project. Further details about how AI was used and how its outputs were checked are provided in the **Use of AI** section above.
