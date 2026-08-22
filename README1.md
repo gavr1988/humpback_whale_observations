@@ -350,3 +350,42 @@ The deployment files included in the repository are:
 
 These files provide Heroku with the information required to install the project dependencies and run the Streamlit application.
 
+## References and Acknowledgements
+
+The following data sources, articles and documentation were used during the development of this project.
+
+### Data Source
+
+- **Ocean Biodiversity Information System (OBIS)**  
+  Humpback whale occurrence data used for this project.  
+  [OBIS Mapper](https://mapper.obis.org/?taxonid=137092&areaid=31908&startdate=2010-01-01#)
+
+  The dataset used in this project was downloaded on 24 July 2026.
+
+### Marine Ecology and Data Analytics
+
+- **Plymouth Marine Laboratory (PML)**  
+  *Big Data to Protect Marine Biodiversity*  
+  [Plymouth Marine Laboratory](https://pml.ac.uk/portfolio/big-data-to-protect-marine-biodiversity/)
+
+- **Frontiers in Marine Science**  
+  *Data Science and Artificial Intelligence for Advancing Marine Science and Technology*  
+  [Frontiers in Marine Science](https://www.frontiersin.org/research-topics/75955/data-science-and-artificial-intelligence-for-advancing-marine-science-and-technology)
+
+- **Harnham**  
+  *How Data is Playing a Role in Preserving Marine Ecosystems*  
+  [Harnham](https://www.harnham.com/how-data-is-playing-a-role-in-preserving-marine-ecosystems-harnham-recruitment-post/)
+
+- **Unity Environmental University**  
+  *Data and the Deep Sea: Ways Marine Biologists Use Data and Scientific Analysis to Save the Oceans*  
+  [Unity Environmental University](https://unity.edu/sustainability/data-and-the-deep-sea-4-ways-marine-biologists-use-data-and-scientific-analysis-to-save-the-oceans/)
+
+### Technical Documentation
+
+- **Scikit-learn**  
+  Scikit-learn documentation was used to support the development and troubleshooting of the regression models used in this project.  
+  [Linear Regression Documentation](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html)
+
+### Acknowledgements
+
+AI assistance, specifically ChatGPT, was used as a learning and troubleshooting tool during the development of this project. Further details about how AI was used and how its outputs were checked are provided in the **Use of AI** section above.
