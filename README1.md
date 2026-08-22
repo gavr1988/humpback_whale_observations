@@ -145,3 +145,32 @@ The analysis identified several seasonal and environmental patterns within the r
 - Of the three machine-learning models tested, the unrestricted Decision Tree produced the lowest testing RMSE at approximately 0.05°C. However, it also fitted the training data almost perfectly, so its ability to generalise to genuinely new years or geographical areas should be treated cautiously.
 
 Overall, the results show clear seasonal and environmental differences within the recorded observations. However, these patterns represent associations within the available data and should not be interpreted as direct evidence of whale abundance or causation.
+
+## Streamlit Application. 
+
+As part of this projected I created a multipage interactive Streamlit application, which is used to present and display the main findings of the project in a user friendly accesible format. 
+
+The application contains five main pages. 
+
+1. **Home/Overview**
+
+This page provides an introduction to the project, including the research question and a summary of the main findings. 
+
+2. **SST and Seasonal Analysis**
+
+This page allows the user to explore recorded observations and sea surface temperature patterns using season and year filters. 
+
+3. **Observation Maps**
+
+This page displays the geographical locations of recorded humpback whale observations. 
+It can be filtered by season and year to allow the user to compare. 
+
+4. **SST Predictitions**
+
+THis page uses the trained decision tree regression model to estimate sea-surface temperature from year, month, latitude and longitude. 
+
+5. **Methodology and Limitations**
+
+This explains the data-cleaning process, statistical analysis , machine learning, project limitations, ethical considerations and use of AI.
+
+The reason this streamlit was designed and created was designed to make the results easier to explore and visualise without requiring the user to run through the entire jupyter notebook or even understanding the python coding. 
