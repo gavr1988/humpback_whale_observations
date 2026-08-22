@@ -210,5 +210,10 @@ Challenge: As the project structure developed, some file paths stopped working b
 Solution: The working directory was checked and file paths were updated so that the Jupyter Notebook and Streamlit application could locate the required datasets correctly.
 
 
+### 6. Learning Streamlit
 
+Challenge: I had limited previous experience using Streamlit before this project, so developing a multipage application presented an additional learning challenge.
+
+
+Soluition: I utilised AI to assist in the development of the application and did so gradually, starting with the homepage and then adding separate pages for seasonal analysis, the observation map, SST prediction, and methodology and limitations. Each page was tested as it was developed.
 
