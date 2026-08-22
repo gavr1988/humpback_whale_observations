@@ -196,3 +196,9 @@ Solution: To address this, the observation date was converted into a datetime fo
 Challenge : During development, the dataset was filtered to include only records between 2010 and 2025. This changed some of the statistical results that had been calculated earlier in the project.
 
 Solution: The analysis was rerun and the written interpretations were checked and updated so that they matched the latest outputs.
+
+### 4. Machine-Learning Development
+
+Challenge: Errors were encountered while preparing and training the regression models, particularly when dealing with missing values and selecting suitable input variables.
+
+Solution: The data was checked before modelling, records with missing values required by the model were removed, and the models were evaluated using RMSE so that their performance could be compared.
