@@ -133,6 +133,12 @@ humpback_whale_observations/
 
 - `README.md` contains the main documentation for the project.
 
+## Project Plan
+
+An original project plan was created to outline the intended stages of the project, including data collection, cleaning, exploratory analysis, statistical testing, machine learning, visualisation and project documentation.
+
+The project plan was adapted during development as new challenges, findings and learning opportunities emerged.
+
 ## Methodology
 
 The Project followed an exploratory data analysis to investigate seasonal patterns in recorded humpback whale observations in the North Pacific region whilst also looking into the sea-surface temperature associated with the observations.
