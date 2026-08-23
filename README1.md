@@ -15,10 +15,6 @@ sea-surface temperature between 2010 and 2025?
 
 ## Hypothesis
 
-## Hypothesis
-
-## Hypothesis
-
 Before carrying out the analysis, I hypothesised that the number of recorded humpback whale observations would be higher during the Summer months.
 
 This hypothesis was influenced by information from the International Whaling Commission (IWC) Whale Watching Handbook, which explains that Northern Hemisphere humpback whale populations migrate seasonally and generally feed at higher latitudes between June and October.
@@ -34,6 +30,16 @@ However, observation records can also be influenced by factors such as survey ef
 - Analyse SST and SSS. 
 - Apply statistical testing. 
 - Build an interactive Streamlit dashboard to host the findings and allow for exploration. 
+
+## Target Audience
+
+The target audience for this project includes people with an interest in marine ecology, wildlife conservation, environmental data and humpback whales, as well as users who may not have a technical background in data analytics.
+
+The Jupyter Notebook provides the more detailed technical analysis, including data cleaning, statistical testing, correlation analysis and machine-learning development for those with a data analytics background. 
+
+The Streamlit application was designed to make the main findings easier to understand for a wider audience. It allows users to explore the data using filters, summary statistics, visualisations, an observation map and an SST prediction tool without needing to understand or run the underlying Python code.
+
+To support non-technical users, the dashboard also includes explanations of the methodology, limitations and interpretation of the results. Care was taken to describe the data as recorded whale observations rather than direct measures of whale abundance.
 
 ## Dataset
 
