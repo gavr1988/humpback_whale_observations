@@ -15,7 +15,17 @@ sea-surface temperature between 2010 and 2025?
 
 ## Hypothesis
 
+## Hypothesis
 
+## Hypothesis
+
+Before carrying out the analysis, I hypothesised that the number of recorded humpback whale observations would be higher during the Summer months.
+
+This hypothesis was influenced by information from the International Whaling Commission (IWC) Whale Watching Handbook, which explains that Northern Hemisphere humpback whale populations migrate seasonally and generally feed at higher latitudes between June and October.
+
+As my project focuses on the North Pacific, I expected this seasonal movement towards northern feeding grounds to result in a greater number of recorded observations during the Summer months.
+
+However, observation records can also be influenced by factors such as survey effort, tourism, accessibility and reporting practices, so the number of recorded observations should not be interpreted as a direct measure of humpback whale abundance.
 
 ## Project Objectives
 
