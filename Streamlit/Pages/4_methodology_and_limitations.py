@@ -22,9 +22,7 @@ st.write(
     "ethical considerations and use of AI during the project."
 )
 
-
 data_path = Path(__file__).resolve().parents[1] / "whale_data_cleaned.csv"
-
 
 # About the Dataset
 

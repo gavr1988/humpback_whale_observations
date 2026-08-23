@@ -18,13 +18,9 @@ st.set_page_config(
 # This page is stored inside the "pages" folder.
 # The cleaned CSV is stored one folder above it in the main Streamlit folder.
 
-data_path = (
-    Path(__file__).resolve().parents[1]
-    / "whale_data_cleaned.csv"
-)
-
-
+data_path = Path(__file__).resolve().parents[1] / "whale_data_cleaned.csv"
 # Cache the dataset so Streamlit does not need to reload the CSV after every interaction.
+
 @st.cache_data
 def load_data():
 

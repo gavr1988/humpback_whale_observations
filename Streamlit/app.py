@@ -3,8 +3,12 @@ import pandas as pd
 from pathlib import Path
 
 #Making the browser tab and page layout
-# Create a reliable path to the cleaned dataset.
-data_path = Path(__file__).resolve().parent / "whale_data_cleaned.csv"
+# Create a reliable path to the cleaned dataset (prefer central Data folder).
+project_root = Path(__file__).resolve().parent.parent
+data_path = project_root / "Data" / "Cleaned and CSV" / "whale_data_cleaned.csv"
+# Fall back to the local copy in the `streamlit` folder if the central file isn't present.
+if not data_path.exists():
+    data_path = Path(__file__).resolve().parent / "whale_data_cleaned.csv"
 
 st.set_page_config(
     page_title="Humpback Whale Analytics",

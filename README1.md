@@ -13,6 +13,10 @@ This capstone project investigates recorded North Pacific humpback whale observa
 How do North Pacific humpback whale observations vary by season and
 sea-surface temperature between 2010 and 2025?
 
+## Hypothesis
+
+
+
 ## Project Objectives
 
 - Clean and prepare the OBIS dataset. 
@@ -393,3 +397,5 @@ The following data sources, articles and documentation were used during the deve
 ### Acknowledgements
 
 AI assistance, specifically ChatGPT, was used as a learning and troubleshooting tool during the development of this project. Further details about how AI was used and how its outputs were checked are provided in the **Use of AI** section above.
+
+### Deployment
