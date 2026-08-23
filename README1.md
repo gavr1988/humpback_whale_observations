@@ -160,6 +160,8 @@ The analysis identified several seasonal and environmental patterns within the r
 
 Overall, the results show clear seasonal and environmental differences within the recorded observations. However, these patterns represent associations within the available data and should not be interpreted as direct evidence of whale abundance or causation.
 
+The initial hypothesis was also not supported by the recorded observation data, as Winter contained the highest number of records rather than Summer.
+
 ## Streamlit Application. 
 
 As part of this projected I created a multipage interactive Streamlit application, which is used to present and display the main findings of the project in a user friendly accesible format. 
