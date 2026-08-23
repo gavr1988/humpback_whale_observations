@@ -394,6 +394,12 @@ The following data sources, articles and documentation were used during the deve
   *Data and the Deep Sea: Ways Marine Biologists Use Data and Scientific Analysis to Save the Oceans*  
   [Unity Environmental University](https://unity.edu/sustainability/data-and-the-deep-sea-4-ways-marine-biologists-use-data-and-scientific-analysis-to-save-the-oceans/)
 
+  ### Humpback Whale Ecology
+
+- **International Whaling Commission (IWC) – Whale Watching Handbook**  
+  Information about humpback whale migration, feeding and seasonal distribution was used to help inform the initial project hypothesis.  
+  [Humpback Whale – Whale Watching Handbook](https://wwhandbook.iwc.int/en/species/humpback-whale)
+
 ### Technical Documentation
 
 - **Scikit-learn**  
