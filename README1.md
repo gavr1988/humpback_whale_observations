@@ -35,7 +35,7 @@ However, observation records can also be influenced by factors such as survey ef
 
 The target audience for this project includes people with an interest in marine ecology, wildlife conservation, environmental data and humpback whales, as well as users who may not have a technical background in data analytics.
 
-The purpose of the Jupyter Notebook provides the more detailed technical analysis, including data cleaning, statistical testing, correlation analysis and machine-learning development for those with a data analytics background. 
+The purpose of this Jupyter Notebook provides the more detailed technical analysis, including data cleaning, statistical testing, correlation analysis and machine-learning development for those with a data analytics background. 
 
 The Streamlit application was designed to make the main findings easier to understand for a wider audience. It allows users to explore the data using filters, summary statistics, visualisations, an observation map and an SST prediction tool without needing to understand or run the underlying Python code.
 
@@ -74,10 +74,6 @@ During data cleaning, missing SST and SSS values were not estimated or replaced.
 
 Git and GitHub were used for version control so that changes to the project files, code and documentation could be tracked throughout the development of the project.
 
-
-## Project Structure
-
-The project has been organised into separate folders for the Jupyter Notebook, Streamlit application and visualisations.
 
 
 ## Project Structure
@@ -129,13 +125,13 @@ humpback_whale_observations/
 
 - `Procfile` and `setup.sh` are used for deployment.
 
-- `.gitignore` prevents files such as the large original dataset (`whale_data_originial`) from being tracked by Git such as the original data downloaded from OBIS.
+- `.gitignore` prevents files such as the large original dataset (`whale_data_original`) from being tracked by Git such as the original data downloaded from OBIS.
 
 - `README.md` contains the main documentation for the project.
 
 ## Project Plan
 
-An original project plan was created to outline the intended stages of the project, including data collection, cleaning, exploratory analysis, statistical testing, machine learning, visualisation and project documentation.
+An original project plan was created to outline the intended stages of the project, including data collection, cleaning, exploratory analysis, statistical testing, machine learning, visualisation and project documentation. The original plan can be found in the file `project_plan.md`
 
 The project plan was adapted during development as new challenges, findings and learning opportunities emerged.
 
@@ -162,7 +158,7 @@ The analysis identified several seasonal and environmental patterns within the r
 
 - Winter contained the largest number of recorded observations with 38,034 records. 
 
-- Winter observations area ssociated with the highest mean SST at approximately 24.36C, whilst summer observations had a much lower SST of approximately 14.43 oC. This should not be interpreted as meaning the whole north pacific is warmer in Winter, as the pattern may partially reflect differences in where whales were recorded during each session.
+- Winter observations area associated with the highest mean SST at approximately 24.36C, whilst summer observations had a much lower SST of approximately 14.43 oC. This should not be interpreted as meaning the whole north pacific is warmer in Winter, as the pattern may partially reflect differences in where whales were recorded during each session.
 
  A T-test comparing Winter and Summer SST produced a t-statistic of approximately 286.23 and a p-value displayed by Python as 0.0. The p-value is effectively zero and below the 0.05 significance level, so the null hypothesis was rejected.
 
@@ -176,7 +172,7 @@ The initial hypothesis was also not supported by the recorded observation data, 
 
 ## Streamlit Application. 
 
-As part of this projected I created a multipage interactive Streamlit application, which is used to present and display the main findings of the project in a user friendly accesible format. 
+As part of this I created a multipage interactive Streamlit application, which is used to present and display the main findings of the project in a user friendly accessible format. 
 
 The application contains five main pages. 
 
@@ -193,9 +189,9 @@ This page allows the user to explore recorded observations and sea surface tempe
 This page displays the geographical locations of recorded humpback whale observations. 
 It can be filtered by season and year to allow the user to compare. 
 
-4. **SST Predictitions**
+4. **SST Predictions**
 
-THis page uses the trained decision tree regression model to estimate sea-surface temperature from year, month, latitude and longitude. 
+This page uses the trained decision tree regression model to estimate sea-surface temperature from year, month, latitude and longitude. 
 
 5. **Methodology and Limitations**
 
@@ -243,13 +239,13 @@ Solution: The working directory was checked and file paths were updated so that 
 Challenge: I had limited previous experience using Streamlit before this project, so developing a multipage application presented an additional learning challenge.  
 
 
-Soluition: I utilised AI to assist in the development of the application and did so gradually, starting with the homepage and then adding separate pages for seasonal analysis, the observation map, SST prediction, and methodology and limitations. Each page was tested as it was developed. The original plan for the Streamlit app can be found in .`streamlit_dashboard_plan.md`.
+Solution: I utilised AI to assist in the development of the application and did so gradually, starting with the homepage and then adding separate pages for seasonal analysis, the observation map, SST prediction, and methodology and limitations. Each page was tested as it was developed. The original plan for the Streamlit app can be found in .`streamlit_dashboard_plan.md`.
 
 ### 7. Naming Conventions
 
 Challenges: During the project I received feedback that the naming conventions used for files and folders could be improved alongside my commit titles for github. 
 
-Solution: The repository was reorganised to use clearer and more consistent lowercase `snake_case` naming for Python files and folders. This improved the readability and organisation of the project. I also gave more detailed commits after reciving this feedback.
+Solution: The repository was reorganised to use clearer and more consistent lowercase `snake_case` naming for Python files and folders. This improved the readability and organisation of the project. I also gave more detailed commits after receiving this feedback.
 
 
 ## Limitations
@@ -363,12 +359,58 @@ I also learned the importance of reviewing results as a project changes. For exa
 
 Overall, the project has improved my confidence in working independently with a real-world dataset and has given me a better understanding of the full data analysis process, from obtaining and cleaning data through to analysis, machine learning, visualisation and presenting the final results.
 
+## Testing
+
+Testing was carried out throughout the development of the project to make sure the Jupyter Notebook and Streamlit application worked as expected.
+
+### Jupyter Notebook Testing
+
+The Jupyter Notebook was tested by running the analysis from beginning to end and checking that:
+
+- The dataset loaded correctly.
+- The cleaning steps produced the expected columns and data types.
+- The data was filtered to observations between 2010 and 2025.
+- The season variable was created correctly.
+- Summary statistics and visualisations produced the expected outputs.
+- The hypothesis test and correlation analysis ran successfully.
+- The machine-learning models trained successfully and produced RMSE values for comparison.
+
+### Streamlit Testing
+
+The Streamlit application was tested locally and after deployment.
+
+Testing included:
+
+- Checking that all five application pages loaded successfully.
+- Testing the season and year filters.
+- Checking that summary statistics changed when filters were applied.
+- Checking that the seasonal charts displayed correctly.
+- Testing the observation map.
+- Testing the SST prediction tool using different inputs.
+- Checking that the cleaned dataset loaded correctly on each page.
+- Checking that the application displayed correctly after deployment to Heroku.
+
+### Deployment Testing
+
+After deployment to Heroku, the live application was tested to confirm that:
+
+- The application started successfully.
+- All Streamlit pages were accessible.
+- The cleaned dataset loaded correctly.
+- Interactive filters and visualisations worked.
+- The SST prediction tool returned a result.
+- No file-path or missing-package errors prevented the application from running.
+
+
+
+
 ## Deployment
 
 The Streamlit application has been deployed using Heroku.
 
-The link to the deployment is
+The live application can be accessed here:
 
+[Humpback Whale Analytics](https://humpback-sst-analysis-4af99d9204ef.herokuapp.com/)
 
 The deployment files included in the repository are:
 
@@ -428,4 +470,4 @@ The following data sources, articles and documentation were used during the deve
 
 AI assistance, specifically ChatGPT, was used as a learning and troubleshooting tool during the development of this project. Further details about how AI was used and how its outputs were checked are provided in the **Use of AI** section above.
 
-### Deployment
+
