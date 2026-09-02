@@ -205,7 +205,7 @@ I came across several practical challenges during the development of this projec
 
 ### 1. A Large Dataset
 
-Challenge : The original dataset from OBIS was approximately 333.1 MB, which made it too large to upload to the GitHub repository associated with this project. 
+Challenge : The original dataset from OBIS was approximately 331.1 MB, which made it too large to upload to the GitHub repository associated with this project. 
 
 Solution : In order to deal with this the orignal dataset was stored locally and added to the `.gitignore`. A smaller cleaned dataset was created and used for the analysis and creation of the streamlit.  
 
@@ -338,8 +338,32 @@ Any updates to the project should be tested locally before being committed to Gi
 
 Git and GitHub can continue to be used to track changes and provide a record of how the project develops over time.
 
-## How to run the Project
 
+## How to Run the Project
+
+To run this project locally follow these steps:
+
+1. Clone the GitHub repository using `git clone https://github.com/gavr1988/humpback_whale_observations.git`
+
+2. Move into the project folder using `cd humpback_whale_observations`
+
+3. Create a virtual environment using `python3 -m venv .venv`
+
+4. Activate the virtual environment on macOS/Linux using `source .venv/bin/activate`
+
+5. Install the required Python packages using `pip install -r requirements.txt`
+
+6. Open the Jupyter Notebook using `jupyter notebook jupyter_notebooks/capstone_humpback_whales.ipynb`
+
+7. To run the Streamlit application locally, use `streamlit run streamlit/app.py`
+
+The original OBIS dataset, `whale_data_original.csv`, is approximately 331.1 MB and is not included in the GitHub repository because of its size. The original data can be downloaded from the OBIS Mapper linked in the Dataset section of this README.
+
+The cleaned dataset required by the Streamlit application is included in the repository.
+
+The deployed Streamlit application can also be accessed here:
+
+[Humpback Whale Analytics](https://humpback-sst-analysis-4af99d9204ef.herokuapp.com/)
 
 ## Reflection and Learning
 
