@@ -100,6 +100,7 @@ humpback_whale_observations/
 │       └── 4_methodology_and_limitations.py
 │
 ├── .gitignore
+├── .python-version
 ├── README.md
 ├── requirements.txt
 ├── Procfile
@@ -124,6 +125,8 @@ humpback_whale_observations/
 - `requirements.txt` lists the Python packages required to run the project.
 
 - `Procfile` and `setup.sh` are used for deployment.
+
+- `.python-version` specifies the Python version used for deployment on Heroku.
 
 - `.gitignore` prevents files such as the large original dataset (`whale_data_original`) from being tracked by Git such as the original data downloaded from OBIS.
 
@@ -170,7 +173,7 @@ Overall, the results show clear seasonal and environmental differences within th
 
 The initial hypothesis was also not supported by the recorded observation data, as Winter contained the highest number of records rather than Summer.
 
-## Streamlit Application. 
+## Streamlit Application
 
 As part of this I created a multipage interactive Streamlit application, which is used to present and display the main findings of the project in a user friendly accessible format. 
 
@@ -197,7 +200,7 @@ This page uses the trained decision tree regression model to estimate sea-surfac
 
 This explains the data-cleaning process, statistical analysis , machine learning, project limitations, ethical considerations and use of AI.
 
-The reason this streamlit was designed and created was designed to make the results easier to explore and visualise without requiring the user to run through the entire jupyter notebook or even understanding the python coding. 
+The reason this streamlit was designed and created  to make the results easier to explore and visualise without requiring the user to run through the entire jupyter notebook or even understanding the python coding. 
 
 ## Challenges and Solutions
 
@@ -207,7 +210,7 @@ I came across several practical challenges during the development of this projec
 
 Challenge : The original dataset from OBIS was approximately 331.1 MB, which made it too large to upload to the GitHub repository associated with this project. 
 
-Solution : In order to deal with this the orignal dataset was stored locally and added to the `.gitignore`. A smaller cleaned dataset was created and used for the analysis and creation of the streamlit.  
+Solution : In order to deal with this the original dataset was stored locally and added to the `.gitignore`. A smaller cleaned dataset was created and used for the analysis and creation of the streamlit.  
 
 ### 2. Missing and Incorrect Month Values
 
@@ -243,7 +246,7 @@ Solution: I utilised AI to assist in the development of the application and did 
 
 ### 7. Naming Conventions
 
-Challenges: During the project I received feedback that the naming conventions used for files and folders could be improved alongside my commit titles for github. 
+Challenges: During the project I received feedback that the naming conventions used for files and folders could be improved alongside my commit titles for Github. 
 
 Solution: The repository was reorganised to use clearer and more consistent lowercase `snake_case` naming for Python files and folders. This improved the readability and organisation of the project. I also gave more detailed commits after receiving this feedback.
 
@@ -296,7 +299,7 @@ It was used to help with:
 
 AI-generated suggestions were not automatically assumed to be correct. Code was run and tested in the Jupyter Notebook and Streamlit application, and statistical results and interpretations were checked against the actual outputs from the dataset.
 
-During the project, I found that AI tools can sometimes provide incorrect code, make assumptions or confidently present inaccurate information. For this reason, AI was used as a learning and troubleshooting tool rather than as a replacement for checking the analysis myself.
+During the project, I found that AI tools can sometimes provide incorrect code, make assumptions or confidently present inaccurate information. For this reason, AI was also used to support the structure and wording of some dashboard summaries and explanations, which I checked against the actual analysis outputs before including them.
 
 The responsibility for the final code, analysis, interpretation and conclusions remained with me.
 
@@ -441,8 +444,9 @@ The deployment files included in the repository are:
 - `Procfile`
 - `setup.sh`
 - `requirements.txt`
+- `.python-version`
 
-These files provide Heroku with the information required to install the project dependencies and run the Streamlit application.
+These files provide Heroku with the information required to use the correct Python version, install the project dependencies and run the Streamlit application.
 
 ## References and Acknowledgements
 
