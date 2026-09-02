@@ -35,7 +35,7 @@ However, observation records can also be influenced by factors such as survey ef
 
 The target audience for this project includes people with an interest in marine ecology, wildlife conservation, environmental data and humpback whales, as well as users who may not have a technical background in data analytics.
 
-The purpose of this Jupyter Notebook provides the more detailed technical analysis, including data cleaning, statistical testing, correlation analysis and machine-learning development for those with a data analytics background. 
+The Jupyter Notebook provides the more detailed technical analysis, including data cleaning, statistical testing, correlation analysis and machine-learning development for those with a data analytics background. 
 
 The Streamlit application was designed to make the main findings easier to understand for a wider audience. It allows users to explore the data using filters, summary statistics, visualisations, an observation map and an SST prediction tool without needing to understand or run the underlying Python code.
 
@@ -495,3 +495,4 @@ The following data sources, articles and documentation were used during the deve
 AI assistance, specifically ChatGPT, was used as a learning and troubleshooting tool during the development of this project. Further details about how AI was used and how its outputs were checked are provided in the **Use of AI** section above.
 
 
+ 
