@@ -158,7 +158,7 @@ The analysis identified several seasonal and environmental patterns within the r
 
 - Winter contained the largest number of recorded observations with 38,034 records. 
 
-- Winter observations area associated with the highest mean SST at approximately 24.36C, whilst summer observations had a much lower SST of approximately 14.43 oC. This should not be interpreted as meaning the whole north pacific is warmer in Winter, as the pattern may partially reflect differences in where whales were recorded during each session.
+- Winter observations were associated with the highest mean SST at approximately 24.36°C, whilst Summer observations had a lower mean SST of approximately 14.43°C. This should not be interpreted as meaning that the whole North Pacific is warmer in Winter, as the pattern may partly reflect differences in where whales were recorded during each season.
 
  A T-test comparing Winter and Summer SST produced a t-statistic of approximately 286.23 and a p-value displayed by Python as 0.0. The p-value is effectively zero and below the 0.05 significance level, so the null hypothesis was rejected.
 
