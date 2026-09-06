@@ -91,7 +91,7 @@ humpback_whale_observations/
 │       statistical analysis and machine learning.
 │
 ├── streamlit/
-│   ├── app.py
+│   ├── Overview.py
 │   ├── whale_data_cleaned.csv
 │   └── pages/
 │       ├── 1_sst_seasonal_analysis.py
@@ -114,7 +114,7 @@ humpback_whale_observations/
 
 - `streamlit/` contains the interactive Streamlit application.
 
-- `streamlit/app.py` is the main homepage for the Streamlit dashboard.
+- `streamlit/Overview.py` is the main homepage for the Streamlit dashboard.
 
 - `streamlit/pages/` contains the additional pages for seasonal analysis, the observation map, SST prediction, and methodology and limitations.
 
@@ -358,7 +358,7 @@ To run this project locally follow these steps:
 
 6. Open the Jupyter Notebook using `jupyter notebook jupyter_notebooks/capstone_humpback_whales.ipynb`
 
-7. To run the Streamlit application locally, use `streamlit run streamlit/app.py`
+7. To run the Streamlit application locally, use `streamlit run streamlit/Overview.py`
 
 The original OBIS dataset, `whale_data_original.csv`, is approximately 331.1 MB and is not included in the GitHub repository because of its size. The original data can be downloaded from the OBIS Mapper linked in the Dataset section of this README.
 
